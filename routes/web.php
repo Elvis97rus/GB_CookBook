@@ -18,6 +18,8 @@ Route::resource('/', HomeController::class);
 
 Auth::routes();
 
+Route::get('/', [\App\Http\Controllers\RecipesController::class, 'getRecipes']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
