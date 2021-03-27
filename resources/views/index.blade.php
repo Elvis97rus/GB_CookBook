@@ -163,22 +163,24 @@
                         </ul>
                     </div>
                     <div class="mt-8 flex justify-between flex-wrap">
+                        @foreach($recipes as $recipe)
                         <div class="recipe-item flex">
-                            <div class="photo"></div>
+                            <div class="photo">{{$recipe->image}}</div>
                             <div class="description flex flex-col justify-between">
                                 <div class="top flex flex-col justify-between">
-                                    <div class="title">Утиные ножки с овощами и грудинкой фасолью</div>
+                                    <div class="title">{{$recipe->name}}</div>
                                     <div class="short-info m-auto">
                                         <ul class="flex justify-between m-auto text-center">
-                                            <li class="block list-none"><span class="material-icons">timer</span> 135 мин</li>
-                                            <li class="block list-none"><span class="material-icons">whatshot</span> Сложно</li>
+                                            <li class="block list-none"><span class="material-icons">timer</span> {{$recipe->time}}</li>
+                                            <li class="block list-none"><span class="material-icons">whatshot</span>
+                                                Сложность {{$recipe->level}}</li>
                                             <li class="block list-none"><span class="material-icons">directions_run</span> 125 ккал</li>
                                         </ul>
                                     </div>
-                                    <div class="ingredients mt-4 mb-4">говядина, масло топлёное, лук репчатый, морковь, редька, перец сладкий, помидоры, томат-пюре, картофель, чеснок, бульон мясной, соль, перец чёрный, зелень петрушки...</div>
+                                    <div class="ingredients mt-4 mb-4">{{$recipe->ingredients}}</div>
                                 </div>
                                 <div class="bot like-share flex justify-between">
-                                    <div class="likes"><span class="material-icons">favorite_border</span>&nbsp;<span class="count">16</span></div>
+                                    <div class="likes"><span class="material-icons">favorite_border</span>&nbsp;<span class="count">{{$recipe->likes}}</span></div>
                                     <div class="share">
                                         <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>
                                         <a href="#"><img src="{{asset('/images/icons/fb.png')}}" alt=""></a>
@@ -187,126 +189,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="recipe-item flex">
-                            <div class="photo"></div>
-                            <div class="description flex flex-col justify-between">
-                                <div class="top flex flex-col justify-between">
-                                    <div class="title">Утиные ножки с овощами и грудинкой фасолью</div>
-                                    <div class="short-info m-auto">
-                                        <ul class="flex justify-between m-auto text-center">
-                                            <li class="block list-none"><span class="material-icons">timer</span> 135 мин</li>
-                                            <li class="block list-none"><span class="material-icons">whatshot</span> Сложно</li>
-                                            <li class="block list-none"><span class="material-icons">directions_run</span> 125 ккал</li>
-                                        </ul>
-                                    </div>
-                                    <div class="ingredients mt-4 mb-4">говядина, масло топлёное, лук репчатый, морковь, редька, перец сладкий, помидоры, томат-пюре, картофель, чеснок, бульон мясной, соль, перец чёрный, зелень петрушки...</div>
-                                </div>
-                                <div class="bot like-share flex justify-between">
-                                    <div class="likes"><span class="material-icons">favorite_border</span>&nbsp;<span class="count">16</span></div>
-                                    <div class="share">
-                                        <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/fb.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/ok.png')}}" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recipe-item flex">
-                            <div class="photo"></div>
-                            <div class="description flex flex-col justify-between">
-                                <div class="top flex flex-col justify-between">
-                                    <div class="title">Утиные ножки с овощами и грудинкой фасолью</div>
-                                    <div class="short-info m-auto">
-                                        <ul class="flex justify-between m-auto text-center">
-                                            <li class="block list-none"><span class="material-icons">timer</span> 135 мин</li>
-                                            <li class="block list-none"><span class="material-icons">whatshot</span> Сложно</li>
-                                            <li class="block list-none"><span class="material-icons">directions_run</span> 125 ккал</li>
-                                        </ul>
-                                    </div>
-                                    <div class="ingredients mt-4 mb-4">говядина, масло топлёное, лук репчатый, морковь, редька, перец сладкий, помидоры, томат-пюре, картофель, чеснок, бульон мясной, соль, перец чёрный, зелень петрушки...</div>
-                                </div>
-                                <div class="bot like-share flex justify-between">
-                                    <div class="likes"><span class="material-icons">favorite_border</span>&nbsp;<span class="count">16</span></div>
-                                    <div class="share">
-                                        <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/fb.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/ok.png')}}" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recipe-item flex">
-                            <div class="photo"></div>
-                            <div class="description flex flex-col justify-between">
-                                <div class="top flex flex-col justify-between">
-                                    <div class="title">Утиные ножки с овощами и грудинкой фасолью</div>
-                                    <div class="short-info m-auto">
-                                        <ul class="flex justify-between m-auto text-center">
-                                            <li class="block list-none"><span class="material-icons">timer</span> 135 мин</li>
-                                            <li class="block list-none"><span class="material-icons">whatshot</span> Сложно</li>
-                                            <li class="block list-none"><span class="material-icons">directions_run</span> 125 ккал</li>
-                                        </ul>
-                                    </div>
-                                    <div class="ingredients mt-4 mb-4">говядина, масло топлёное, лук репчатый, морковь, редька, перец сладкий, помидоры, томат-пюре, картофель, чеснок, бульон мясной, соль, перец чёрный, зелень петрушки...</div>
-                                </div>
-                                <div class="bot like-share flex justify-between">
-                                    <div class="likes"><span class="material-icons">favorite_border</span>&nbsp;<span class="count">16</span></div>
-                                    <div class="share">
-                                        <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/fb.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/ok.png')}}" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recipe-item flex">
-                            <div class="photo"></div>
-                            <div class="description flex flex-col justify-between">
-                                <div class="top flex flex-col justify-between">
-                                    <div class="title">Утиные ножки с овощами и грудинкой фасолью</div>
-                                    <div class="short-info m-auto">
-                                        <ul class="flex justify-between m-auto text-center">
-                                            <li class="block list-none"><span class="material-icons">timer</span> 135 мин</li>
-                                            <li class="block list-none"><span class="material-icons">whatshot</span> Сложно</li>
-                                            <li class="block list-none"><span class="material-icons">directions_run</span> 125 ккал</li>
-                                        </ul>
-                                    </div>
-                                    <div class="ingredients mt-4 mb-4">говядина, масло топлёное, лук репчатый, морковь, редька, перец сладкий, помидоры, томат-пюре, картофель, чеснок, бульон мясной, соль, перец чёрный, зелень петрушки...</div>
-                                </div>
-                                <div class="bot like-share flex justify-between">
-                                    <div class="likes"><span class="material-icons">favorite_border</span>&nbsp;<span class="count">16</span></div>
-                                    <div class="share">
-                                        <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/fb.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/ok.png')}}" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="recipe-item flex">
-                            <div class="photo"></div>
-                            <div class="description flex flex-col justify-between">
-                                <div class="top flex flex-col justify-between">
-                                    <div class="title">Утиные ножки с овощами и грудинкой фасолью</div>
-                                    <div class="short-info m-auto">
-                                        <ul class="flex justify-between m-auto text-center">
-                                            <li class="block list-none"><span class="material-icons">timer</span> 135 мин</li>
-                                            <li class="block list-none"><span class="material-icons">whatshot</span> Сложно</li>
-                                            <li class="block list-none"><span class="material-icons">directions_run</span> 125 ккал</li>
-                                        </ul>
-                                    </div>
-                                    <div class="ingredients mt-4 mb-4">говядина, масло топлёное, лук репчатый, морковь, редька, перец сладкий, помидоры, томат-пюре, картофель, чеснок, бульон мясной, соль, перец чёрный, зелень петрушки...</div>
-                                </div>
-                                <div class="bot like-share flex justify-between">
-                                    <div class="likes"><span class="material-icons">favorite_border</span>&nbsp;<span class="count">16</span></div>
-                                    <div class="share">
-                                        <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/fb.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/ok.png')}}" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
