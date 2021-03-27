@@ -4,7 +4,7 @@
 <div class="home_container flex flex-col">
     <div class="sidebar w-1/6 m-0 h-screen fixed hidden">
         <div class="text-2xl text-center mt-8 mb-8 title">
-            COOK BOOK
+            <a href="/">COOK BOOK</a>
         </div>
 
         <ul class="menu text-center">
@@ -46,8 +46,9 @@
                             </select>
                             <select name="kitchen-type" id="reciepe-search-field-2">
                                 <option value="" disabled hidden selected>Любая кухня</option>
-                                <option value="2">Кухня №1</option>
-                                <option value="3">Кухня №2</option>
+                                    @foreach($kitchens  as $kitchen)
+                                        <option value="{{$kitchen->id}}">{{$kitchen->name}}</option>
+                                    @endforeach
                             </select>
                             <select name="difficulty" id="reciepe-search-field-3">
                                 <option value="" disabled hidden selected>Сложность</option>
@@ -165,29 +166,31 @@
                     <div class="mt-8 flex justify-between flex-wrap">
                         @foreach($recipes as $recipe)
                         <div class="recipe-item flex">
-                            <div class="photo">{{$recipe->image}}</div>
-                            <div class="description flex flex-col justify-between">
-                                <div class="top flex flex-col justify-between">
-                                    <div class="title">{{$recipe->name}}</div>
-                                    <div class="short-info m-auto">
-                                        <ul class="flex justify-between m-auto text-center">
-                                            <li class="block list-none"><span class="material-icons">timer</span> {{$recipe->time}}</li>
-                                            <li class="block list-none"><span class="material-icons">whatshot</span>
-                                                Сложность {{$recipe->level}}</li>
-                                            <li class="block list-none"><span class="material-icons">directions_run</span> 125 ккал</li>
-                                        </ul>
+                            <div class="photo"><img src="/images/{{$recipe->image}}" alt="img"></div>
+                            <a href="{{ route('show', $recipe->id) }}">
+                                <div class="description flex flex-col justify-between">
+                                    <div class="top flex flex-col justify-between">
+                                        <div class="title">{{$recipe->name}}</div>
+                                        <div class="short-info m-auto">
+                                            <ul class="flex justify-between m-auto text-center">
+                                                <li class="block list-none"><span class="material-icons">timer</span> {{$recipe->time}}</li>
+                                                <li class="block list-none"><span class="material-icons">whatshot</span>
+                                                    Сложность {{$recipe->level}}</li>
+                                                <li class="block list-none"><span class="material-icons">directions_run</span> 125 ккал</li>
+                                            </ul>
+                                        </div>
+                                        <div class="ingredients mt-4 mb-4">{{$recipe->description}}</div>
                                     </div>
-                                    <div class="ingredients mt-4 mb-4">{{$recipe->ingredients}}</div>
-                                </div>
-                                <div class="bot like-share flex justify-between">
-                                    <div class="likes"><span class="material-icons">favorite_border</span>&nbsp;<span class="count">{{$recipe->likes}}</span></div>
-                                    <div class="share">
-                                        <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/fb.png')}}" alt=""></a>
-                                        <a href="#"><img src="{{asset('/images/icons/ok.png')}}" alt=""></a>
+                                    <div class="bot like-share flex justify-between">
+                                        <div class="likes"><span class="material-icons">favorite_border</span>&nbsp;<span class="count">{{$recipe->likes}}</span></div>
+                                        <div class="share">
+                                            <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>
+                                            <a href="#"><img src="{{asset('/images/icons/fb.png')}}" alt=""></a>
+                                            <a href="#"><img src="{{asset('/images/icons/ok.png')}}" alt=""></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         @endforeach
                     </div>
