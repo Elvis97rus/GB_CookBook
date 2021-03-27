@@ -29,3 +29,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+$('.menu-btn').on('click', function (){
+    console.log('asd');
+    $('.sidebar').toggleClass('hidden');
+    $('.main').toggleClass('w-full slided');
+    $('.footer').toggleClass('w-full slided');
+});
