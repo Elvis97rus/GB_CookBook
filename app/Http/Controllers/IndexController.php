@@ -7,14 +7,15 @@ use App\Models\Recipes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class RecipesController extends Controller
+class IndexController extends Controller
 {
-    public function getRecipes()
+    public function index()
     {
-
+        //todo прокинуть рубрики, запрос where (like day), where (like week "random") написать в model
         $recipes = Recipes::query()->paginate(6);
 
         $kitchens = Kitchens::query()->get();
+
 
         return view('index')->with(
             [
