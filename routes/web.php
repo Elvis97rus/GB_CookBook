@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\HomeController;
-use \App\Http\Controllers\RecipesController;
+use \App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [RecipesController::class, 'getRecipes'])->name('getRecipes');
+Route::get('/', [IndexController::class, 'index'])->name('index');
 
-Route::get('/one/{id}', [RecipesController::class, 'show'])->name('show');
+Route::get('/one/{id}', [IndexController::class, 'show'])->name('show');
 
 Auth::routes();
 
