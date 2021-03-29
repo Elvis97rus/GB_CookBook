@@ -18,7 +18,7 @@ class CreateRubricsTable extends Migration
             $table
                 ->string('name')
                 ->unique()
-                ->comment('Название кухни');
+                ->comment('Название рубрики');
             $table
                 ->string('slug')
                 ->unique()
