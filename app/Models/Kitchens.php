@@ -10,4 +10,8 @@ class Kitchens extends \Illuminate\Database\Eloquent\Model
         'name',
         'slug',
     ];
+
+    public function getKitchens() {
+        return $kitchens = Kitchens::query()->get();
+    }
 }

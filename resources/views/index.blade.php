@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="home_container flex flex-col">
+    <div class="home_container flex flex-col">
     <div class="sidebar w-1/6 m-0 h-screen fixed hidden">
         <div class="text-2xl text-center mt-8 mb-8 title">
             <a href="/">COOK BOOK</a>
@@ -77,7 +77,7 @@
                         <img src="{{asset('images/top-tags/1_1.png')}}" class="" alt="">
                         <div class="info info-big">
                             <div class="tag">Блюдо дня</div>
-                            <span class="name">Название и описание Рубрики</span>
+                            <a href="{{ route('show', $bestRecipes->id) }}"><span class="name">{{$bestRecipes->name}}</span></a>
                             <div class="hr flex justify-between w-1/4 m-auto">
                                 <img src="{{asset('images/icons/spoon_fork.png')}}" alt="">
                             </div>
