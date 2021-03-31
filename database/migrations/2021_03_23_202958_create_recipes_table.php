@@ -47,6 +47,14 @@ class CreateRecipesTable extends Migration
                 ->foreign('kitchen_id')
                 ->references('id')
                 ->on('kitchens');
+            $table
+                ->unsignedBigInteger('rubric_id')
+                ->nullable('true')
+                ->comment('ID рубрики');
+            $table
+                ->foreign('rubric_id')
+                ->references('id')
+                ->on('rubrics');
             $table->timestamps();
         });
     }

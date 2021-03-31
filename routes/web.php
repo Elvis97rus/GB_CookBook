@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\HomeController;
+use \App\Http\Controllers\IndexController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +16,10 @@ use \App\Http\Controllers\HomeController;
 |
 */
 
-Route::resource('/', HomeController::class);
+Route::get('/', [IndexController::class, 'index'])->name('index');
+
+Route::get('/one/{id}', [IndexController::class, 'show'])->name('show');
 
 Auth::routes();
 
-Route::get('/', [\App\Http\Controllers\RecipesController::class, 'getRecipes']);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');

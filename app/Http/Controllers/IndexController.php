@@ -33,7 +33,10 @@ class IndexController extends Controller
                 'recipes' => $this->recipes->getRecipes(),
                 'kitchens' => $this->kitchens->getKitchens(),
                 'bestRecipes' => $this->recipes->getBestRecipes()[0],
+
                 'maxLevelRecipes' => $this->recipes->getMaxLevelRecipes()[0],
+
+
             ]);
     }
 

@@ -11,9 +11,11 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
         $this->call(KitchensSeeder::class);
+        $this->call(RubricsSeeder::class);
         $this->call(RecipesSeeder::class);
     }
 }

@@ -27,6 +27,7 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
     }
 
     public function getBestRecipes() {
+
         $maxLikes = Recipes::query()->get()->max('likes');
         return $recipes = Recipes::query()->where('likes', $maxLikes)->limit('1')->get();
     }
@@ -35,6 +36,10 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
         $maxLevel = Recipes::query()->get()->max('level');
         $maxLevelLikes = Recipes::query()->where('level',  $maxLevel)->get()->max('likes');
         return $recipes = Recipes::query()->where('likes', $maxLevelLikes)->limit('1')->get();
+
+        $max = Recipes::query()->get()->max('likes');
+        return $recipes = Recipes::query()->where('likes', $max)->limit('1')->get();
+
     }
 
 }
