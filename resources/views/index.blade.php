@@ -86,8 +86,8 @@
                     <div class="tag-item">
                         <img src="{{asset('images/top-tags/1_2.png')}}" class="" alt="">
                         <div class="info info-big">
-                            <div class="tag">лучшие рецепты недели</div>
-                            <span class="name">Название и описание Рубрики</span>
+                            <div class="tag">лучший сложный рецепт недели</div>
+                            <a href="{{ route('show', $maxLevelRecipes->id) }}"><span class="name">{{$maxLevelRecipes->name}}</span></a>
                             <div class="hr flex justify-between w-1/4 m-auto">
                                 <img src="{{asset('images/icons/spoon_fork.png')}}" alt="">
                             </div>
