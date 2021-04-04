@@ -23,6 +23,9 @@ class CreateRubricsTable extends Migration
                 ->string('slug')
                 ->unique()
                 ->comment('Уникальная ссылка на рубрику');
+            $table
+                ->string('image')
+                ->comment('Адрес изображения');
             $table->timestamps();
         });
     }
