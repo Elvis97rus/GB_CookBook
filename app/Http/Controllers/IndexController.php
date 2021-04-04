@@ -9,30 +9,44 @@ use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
+    public $recipes;
+    public $kitchens;
+
+    /**
+     * IndexController constructor.
+     * @param Recipes $recipes
+     * @param Kitchens $kitchens
+     */
+    public function __construct(Recipes $recipes, Kitchens $kitchens)
+    {
+        $this->recipes = new Recipes();;
+        $this->kitchens = new Kitchens();;
+    }
+
+
     public function index()
     {
         //todo прокинуть рубрики, запрос where (like day), where (like week "random") написать в model
-        $recipes = Recipes::query()->paginate(6);
-
-        $kitchens = Kitchens::query()->get();
-
 
         return view('index')->with(
             [
-                'recipes' => $recipes,
-                'kitchens' => $kitchens,
+                'recipes' => $this->recipes->getRecipes(),
+                'kitchens' => $this->kitchens->getKitchens(),
+                'bestRecipes' => $this->recipes->getBestRecipes()[0],
+
+                'maxLevelRecipes' => $this->recipes->getMaxLevelRecipes()[0],
+
+
             ]);
     }
 
     public function show($id) {
 
-        $recipe = Recipes::query()->where('id', $id)->get();
-
         $kitchens = Kitchens::query()->get();
 
         return view('OneRecipe', [
-            'recipe' => $recipe,
-            'kitchens' => $kitchens,
+            'recipe' => $this->recipes->getOneRecipes($id),
+            'kitchens' => $this->kitchens->getKitchens(),
         ]);
     }
 }
