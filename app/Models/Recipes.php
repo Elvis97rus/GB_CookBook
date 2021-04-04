@@ -29,17 +29,17 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
     public function getBestRecipes() {
 
         $maxLikes = Recipes::query()->get()->max('likes');
-        return $recipes = Recipes::query()->where('likes', $maxLikes)->limit('1')->get();
+        return $recipes = Recipes::query()->where('likes', $maxLikes)->limit('1')->first();
     }
 
     public function getMaxLevelRecipes() {
         $maxLevel = Recipes::query()->get()->max('level');
         $maxLevelLikes = Recipes::query()->where('level',  $maxLevel)->get()->max('likes');
-        return $recipes = Recipes::query()->where('likes', $maxLevelLikes)->limit('1')->get();
+        return $recipes = Recipes::query()->where('likes', $maxLevelLikes)->limit('1')->first();
+    }
 
-        $max = Recipes::query()->get()->max('likes');
-        return $recipes = Recipes::query()->where('likes', $max)->limit('1')->get();
-
+    public function getRubricRecipes($rubric_id) {
+        return  $recipes = Recipes::query()->where('rubric_id', $rubric_id)->get();
     }
 
     public function sort($data) {
@@ -65,11 +65,11 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
                 }
             }
         }
-        
+
         $result = Recipes::query()
                     ->where($dataForQuery)
                     ->get();
-        
+
         return $result;
     }
 

@@ -95,60 +95,62 @@
                     </div>
                 </div>
                 <div class="row row-2">
-                    <div class="tag-item">
-                        <div class="long-item">
-                            <div class="info">
-                                <span class="tag"></span>
-                                <span class="name">Название и описание Рубрики</span>
+                    @foreach($rubrics as $rubric)
+                        <a href="{{ route('showRubric', $rubric->id) }}" class="tag-item">
+                            <div class="long-item">
+                                <div class="info">
+                                    <span class="tag"></span>
+                                    <span class="name">{{$rubric->name}}</span>
+                                </div>
+                                <img src="{{'images/top-tags/' . $rubric->image ?? asset('images/top-tags/2_1.png')}}" class="" alt="">
                             </div>
-                            <img src="{{asset('images/top-tags/2_1.png')}}" class="" alt="">
-                        </div>
-                    </div>
+                        </a>
+                    @endforeach
 
-                    <div class="tag-item comp">
-                        <div class="short-item">
-                            <img src="{{asset('images/top-tags/2_2_1.png')}}" class="" alt="">
-                            <div class="info">
-                                <span class="tag"><span class="material-icons">whatshot</span> &nbsp; полезное</span>
-                                <span class="name">Название и описание Рубрики</span>
-                            </div>
-                        </div>
-                        <div class="short-item">
-                            <img src="{{asset('images/top-tags/2_2_2.png')}}" class="" alt="">
-                            <div class="info">
-                                <span class="tag"></span>
-                                <span class="name">Название и описание Рубрики</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row row-3">
-                    <div class="tag-item comp">
-                        <div class="short-item">
-                            <img src="{{asset('images/top-tags/3_1_1.png')}}" class="" alt="">
-                            <div class="info">
-                                <span class="tag"></span>
-                                <span class="name">Название и описание Рубрики</span>
-                            </div>
-                        </div>
-                        <div class="short-item">
-                            <img src="{{asset('images/top-tags/3_1_2.png')}}" class="" alt="">
-                            <div class="info">
-                                <span class="tag"></span>
-                                <span class="name">Название и описание Рубрики</span>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="tag-item comp">--}}
+{{--                        <div class="short-item">--}}
+{{--                            <img src="{{asset('images/top-tags/2_2_1.png')}}" class="" alt="">--}}
+{{--                            <div class="info">--}}
+{{--                                <span class="tag"><span class="material-icons">whatshot</span> &nbsp; полезное</span>--}}
+{{--                                <span class="name">Название и описание Рубрики</span>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="short-item">--}}
+{{--                            <img src="{{asset('images/top-tags/2_2_2.png')}}" class="" alt="">--}}
+{{--                            <div class="info">--}}
+{{--                                <span class="tag"></span>--}}
+{{--                                <span class="name">Название и описание Рубрики</span>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="row row-3">--}}
+{{--                    <div class="tag-item comp">--}}
+{{--                        <div class="short-item">--}}
+{{--                            <img src="{{asset('images/top-tags/3_1_1.png')}}" class="" alt="">--}}
+{{--                            <div class="info">--}}
+{{--                                <span class="tag"></span>--}}
+{{--                                <span class="name">Название и описание Рубрики</span>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="short-item">--}}
+{{--                            <img src="{{asset('images/top-tags/3_1_2.png')}}" class="" alt="">--}}
+{{--                            <div class="info">--}}
+{{--                                <span class="tag"></span>--}}
+{{--                                <span class="name">Название и описание Рубрики</span>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
-                    <div class="tag-item">
-                        <div class="long-item">
-                            <div class="info">
-                                <span class="tag"></span>
-                                <span class="name">Название и описание Рубрики</span>
-                            </div>
-                            <img src="{{asset('images/top-tags/3_2.png')}}" class="" alt="">
-                        </div>
-                    </div>
+{{--                    <div class="tag-item">--}}
+{{--                        <div class="long-item">--}}
+{{--                            <div class="info">--}}
+{{--                                <span class="tag"></span>--}}
+{{--                                <span class="name">Название и описание Рубрики</span>--}}
+{{--                            </div>--}}
+{{--                            <img src="{{asset('images/top-tags/3_2.png')}}" class="" alt="">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                 </div>
             </div>
