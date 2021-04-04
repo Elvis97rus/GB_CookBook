@@ -42,4 +42,35 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
 
     }
 
+    public function sort($data) {
+        $dataForQuery = [];
+
+        foreach ($data as $key => $value) {
+            if (strlen($value) == 0 || !$value) {
+                unset($data[$key]);
+            } else {
+                switch($key) {
+                    case 'kitchen_id':
+                        array_push($dataForQuery, ['kitchen_id', '=', $value]);
+                        break;
+                    case 'level':
+                        array_push($dataForQuery, ['level', '<=', $value]);
+                        break;
+                    case 'time':
+                        array_push($dataForQuery, ['time', '<=', $value]);
+                        break;
+                    case 'ingredients':
+                        array_push($dataForQuery, ['ingredients', 'like', "%{$value}%"]);
+                        break;
+                }
+            }
+        }
+        
+        $result = Recipes::query()
+                    ->where($dataForQuery)
+                    ->get();
+        
+        return $result;
+    }
+
 }
