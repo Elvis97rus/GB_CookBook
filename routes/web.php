@@ -20,6 +20,8 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 
 Route::get('/one/{id}', [IndexController::class, 'show'])->name('show');
 
+Route::get('/rubric/{id}', [IndexController::class, 'showRubric'])->name('showRubric');
+
 Route::get('/sort', [IndexController::class, 'sort'])->name('sort');
 
 Auth::routes();
