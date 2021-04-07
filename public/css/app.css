@@ -46,6 +46,43 @@
   justify-content: center;
   margin-bottom: 10px;
 }
+.main .header .bot-line .criteria .cook-time-range .slidecontainer {
+  margin-left: 5px;
+  width: 100%;
+  min-width: 225px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .header .bot-line .criteria .cook-time-range .slider {
+  -webkit-appearance: none;
+  width: 50%;
+  margin: 6px 2px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.main .header .bot-line .criteria .cook-time-range .slider:hover {
+  opacity: 1;
+}
+.main .header .bot-line .criteria .cook-time-range .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 0%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+.main .header .bot-line .criteria .cook-time-range .slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
 .main .header .bot-line .criteria select {
   min-width: 180px;
   border-left: 1px solid #dedede;
@@ -83,12 +120,6 @@
 }
 .main .body .hot-tags-top img {
   width: 100%;
-}
-.main .body .hot-tags-top .row-1 {
-  margin-bottom: -115px;
-}
-.main .body .hot-tags-top .row-2 {
-  margin-bottom: -35px;
 }
 .main .body .hot-tags-top .row {
   display: flex;
@@ -146,7 +177,6 @@
 }
 .main .body .hot-tags-top .row .tag-item .long-item {
   text-align: left;
-  margin-top: -23px;
 }
 .main .body .hot-tags-top .row .tag-item .long-item .info {
   margin: 0 10px;
@@ -168,6 +198,17 @@
 }
 .main .body .hot-tags-top .row .short-item:nth-child(2) {
   margin-left: 10px;
+}
+.main .body .hot-tags-top .row-1 {
+  margin-bottom: -115px;
+}
+.main .body .hot-tags-top .row-2 {
+  margin-top: 35px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.main .body .hot-tags-top .row-2 .tag-item {
+  flex-basis: 34%;
 }
 .main .body .recipes-block .filter {
   background: #f1f1f1;
@@ -191,7 +232,7 @@
 }
 .main .body .recipes-block .recipe-item .photo {
   width: 43%;
-  background: blanchedalmond;
+  background-size: contain;
 }
 .main .body .recipes-block .recipe-item .description {
   background: white;
@@ -229,27 +270,32 @@
   vertical-align: middle;
   font-size: 0.9rem;
 }
-.main .body .recipes-block .recipe-item .like-share {
+.main .body .recipes-block .like-share {
   padding: 10px 0;
   border-top: 2px solid #f2f2f2;
   border-collapse: collapse;
 }
-.main .body .recipes-block .recipe-item .like-share .likes {
+.main .body .recipes-block .like-share .likes {
   padding: 5px 10px;
 }
-.main .body .recipes-block .recipe-item .like-share .likes span {
+.main .body .recipes-block .like-share .likes span {
   font-size: 1.2rem;
   vertical-align: text-bottom;
 }
-.main .body .recipes-block .recipe-item .like-share .likes .count {
+.main .body .recipes-block .like-share .likes .count {
   font-size: 1rem;
 }
-.main .body .recipes-block .recipe-item .like-share .share {
+.main .body .recipes-block .like-share .share {
   display: flex;
   width: 40%;
   padding: 5px 10px;
   justify-content: space-between;
   align-items: center;
+}
+.main .body .recipes-block .recipe-single-item .title {
+  font-size: 1.3rem;
+  color: black;
+  margin: 10px auto;
 }
 .main .body .hot-pick .body {
   height: 427px;
