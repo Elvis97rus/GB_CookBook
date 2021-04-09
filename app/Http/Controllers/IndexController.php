@@ -57,7 +57,7 @@ class IndexController extends Controller
     }
 
     public function showRubric($rubric_id) {
-        return view('oneRubric', [
+        return view('OneRubric', [
             'recipe' => $this->recipes->getRubricRecipes($rubric_id),
             'kitchens' => $this->kitchens->getKitchens(),
             'rubric' => $this->rubrics->getOneRubrics($rubric_id),

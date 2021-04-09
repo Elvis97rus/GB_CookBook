@@ -53,6 +53,51 @@
         .mid-line{ }
         .bot-line{
             .criteria{
+                .cook-time-range{
+                    .slidecontainer {
+                        margin-left: 5px;
+                        width: 100%;
+                        min-width: 225px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+
+                    .slider {
+                        -webkit-appearance: none;
+                        width: 50%;
+                        margin: 6px 2px;
+                        border-radius: 5px;
+                        background: #d3d3d3;
+                        outline: none;
+                        opacity: 0.7;
+                        -webkit-transition: .2s;
+                        transition: opacity .2s;
+                    }
+
+                    .slider:hover {
+                        opacity: 1;
+                    }
+
+                    .slider::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 0%;
+                        background: #4CAF50;
+                        cursor: pointer;
+                    }
+
+                    .slider::-moz-range-thumb {
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 50%;
+                        background: #4CAF50;
+                        cursor: pointer;
+                    }
+                }
+
                 border: 1px solid #dedede;
                 padding-right: 15px;
                 min-height: 40px;
@@ -100,9 +145,6 @@
             img{
                 width: 100%;
             }
-
-            .row-1{    margin-bottom: -115px;}
-            .row-2{    margin-bottom: -35px;}
             .row{
                 display: flex;
                 justify-content: space-between;
@@ -160,9 +202,9 @@
                             }
                         }
                     }
+
                     .long-item{
                         text-align: left;
-                        margin-top: -23px;
 
                         .info{
                             margin: 0 10px;
@@ -189,6 +231,17 @@
                     margin-left: 10px;
                 }
             }
+            .row-1{    margin-bottom: -115px;}
+            .row-2{
+                margin-top: 35px;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+
+                .tag-item{
+                    flex-basis: 34%;
+                }
+            }
+
         }
         .recipes-block{
             .filter{
@@ -214,7 +267,7 @@
                 margin-bottom: 10px;
                 .photo{
                     width: 43%;
-                    background: blanchedalmond;
+                    background-size: contain;
                 }
                 .description{
                     background: white;
@@ -254,29 +307,37 @@
                         }
                     }
                 }
-                .like-share{
-                    padding: 10px 0;
-                    border-top: 2px solid #f2f2f2;
-                    border-collapse: collapse;
 
-                    .likes{
-                        padding: $p-5-10;
+            }
+            .like-share{
+                padding: 10px 0;
+                border-top: 2px solid #f2f2f2;
+                border-collapse: collapse;
 
-                        span{
-                            font-size: 1.2rem;
-                            vertical-align: text-bottom;
-                        }
-                        .count{
-                            font-size: 1rem;
-                        }
+                .likes{
+                    padding: $p-5-10;
+
+                    span{
+                        font-size: 1.2rem;
+                        vertical-align: text-bottom;
                     }
-                    .share{
-                        display: flex;
-                        width: 40%;
-                        padding: $p-5-10;
-                        justify-content: space-between;
-                        align-items: center;
+                    .count{
+                        font-size: 1rem;
                     }
+                }
+                .share{
+                    display: flex;
+                    width: 40%;
+                    padding: $p-5-10;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+            .recipe-single-item{
+                .title{
+                    font-size: 1.3rem;
+                    color: black;
+                    margin: 10px auto;
                 }
             }
         }
