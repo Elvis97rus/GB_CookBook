@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\IndexController;
+use App\Http\Controllers\admin\IndexAdminController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -24,6 +24,17 @@ Route::get('/rubric/{id}', [IndexController::class, 'showRubric'])->name('showRu
 
 Route::get('/sort', [IndexController::class, 'sort'])->name('sort');
 
+Route::name('admin.')
+    ->prefix('admin')
+    ->namespace('Admin')
+    ->middleware(['is_admin', 'auth'])
+    ->group(
+        function () {
+            Route::get('/', [IndexAdminController::class, 'index'])->name('index');
+            //Route::match(['get','post'],'/create', [RecipesEditController::class, 'create'])->name('create');
+        }
+    );
+
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+//Route::get('/', [IndexAdminController::class, 'index'])->name('home');

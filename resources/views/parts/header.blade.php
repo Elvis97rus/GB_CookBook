@@ -5,8 +5,35 @@
             <!--span class="self-center material-icons">search</span-->
         </div>
         <div class="right">
-            <span class="pr-6 pl-2 material-icons">notifications</span>
-            <span class="pr-8 pl-2 material-icons">people</span>
+            @guest
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
+                @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endif
+            @else
+                <span class="pr-6 pl-2 material-icons">notifications</span>
+                <span class="pr-8 pl-2 material-icons">people</span>
+
+                    <h1>{{ Auth::user()->name }}</h1>
+
+                        @if (Auth::user()->is_admin)
+                    <a href="{{ route('admin.index') }}">админка</a>
+                        @endif
+                            <h1>ссылка на редакцию профиля</h1>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+            @endguest
         </div>
     </div>
 

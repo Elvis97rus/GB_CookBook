@@ -17,7 +17,7 @@ class IndexController extends Controller
     public $rubrics;
 
     /**
-    * IndexController constructor.
+    * IndexAdminController constructor.
     * @param Recipes $recipes
     * @param Kitchens $kitchens
     * @param Services $services
