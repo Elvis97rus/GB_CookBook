@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Kitchens;
 use App\Models\Recipes;
+<<<<<<< Updated upstream
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+=======
+use App\Models\Rubrics;
+use App\Models\Services;
+
+>>>>>>> Stashed changes
 
 class IndexController extends Controller
 {
@@ -46,4 +52,31 @@ class IndexController extends Controller
             'kitchens' => $this->kitchens->getKitchens(),
         ]);
     }
+<<<<<<< Updated upstream
+=======
+
+    public function showRubric($rubric_id) {
+        return view('OneRubric', [
+            'recipe' => $this->recipes->getRubricRecipes($rubric_id),
+            'kitchens' => $this->kitchens->getKitchens(),
+            'rubric' => $this->rubrics->getOneRubrics($rubric_id),
+        ]);
+    }
+
+    public function sort() {
+        $data = [
+            'kitchen_id' => $this->services->getFromURI('kitchen-type'),
+            'level' => $this->services->getFromURI('difficulty'),
+            'time' => $this->services->getFromURI('volume'),
+            'ingredients' => $this->services->getFromURI('ingredients'),
+        ];
+
+
+        return view('SortRecipes')->with(
+            [
+                'data' => $this->recipes->sort($data),
+                'kitchens' => $this->kitchens->getKitchens(),
+            ]);
+    }
+>>>>>>> Stashed changes
 }
