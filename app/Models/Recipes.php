@@ -27,16 +27,14 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
     }
 
     public function getBestRecipes() {
+
         $maxLikes = Recipes::query()->get()->max('likes');
-        return $recipes = Recipes::query()->where('likes', $maxLikes)->limit('1')->get();
+        return $recipes = Recipes::query()->where('likes', $maxLikes)->limit('1')->first();
     }
 
     public function getMaxLevelRecipes() {
         $maxLevel = Recipes::query()->get()->max('level');
         $maxLevelLikes = Recipes::query()->where('level',  $maxLevel)->get()->max('likes');
-<<<<<<< Updated upstream
-        return $recipes = Recipes::query()->where('likes', $maxLevelLikes)->limit('1')->get();
-=======
         return $recipes = Recipes::query()->where('likes', $maxLevelLikes)->limit('1')->first();
     }
 
@@ -52,8 +50,9 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
                 unset($data[$key]);
             } else {
                 switch($key) {
-                    case 'kitchen-id':
-                        array_push($dataForQuery, ['kitchen-id', '=', $value]);
+
+                    case 'kitchen_id':
+                        array_push($dataForQuery, ['kitchen_id', '=', $value]);
                         break;
                     case 'level':
                         array_push($dataForQuery, ['level', '<=', $value]);
@@ -72,7 +71,7 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
                     ->where($dataForQuery)
                     ->get();
         return $result;
->>>>>>> Stashed changes
+
     }
 
 }

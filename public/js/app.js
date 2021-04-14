@@ -74,6 +74,13 @@ $('.menu-btn').on('click', function () {
   $('.main').toggleClass('w-full slided');
   $('.footer').toggleClass('w-full slided');
 });
+var slider = document.getElementById("volume");
+var output = document.getElementById("cook-time-value");
+output.innerHTML = slider.value;
+
+slider.oninput = function () {
+  output.innerHTML = this.value;
+};
 
 /***/ }),
 

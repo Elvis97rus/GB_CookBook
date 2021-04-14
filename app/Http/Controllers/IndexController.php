@@ -4,29 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Models\Kitchens;
 use App\Models\Recipes;
-<<<<<<< Updated upstream
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-=======
 use App\Models\Rubrics;
 use App\Models\Services;
-
->>>>>>> Stashed changes
 
 class IndexController extends Controller
 {
     public $recipes;
     public $kitchens;
+    public $services;
+    public $rubrics;
 
     /**
-     * IndexController constructor.
-     * @param Recipes $recipes
-     * @param Kitchens $kitchens
-     */
-    public function __construct(Recipes $recipes, Kitchens $kitchens)
+    * IndexAdminController constructor.
+    * @param Recipes $recipes
+    * @param Kitchens $kitchens
+    * @param Services $services
+    * @param Rubrics $rubrics
+    */
+    public function __construct(Recipes $recipes, Kitchens $kitchens, Services $services, Rubrics $rubrics)
     {
-        $this->recipes = new Recipes();;
-        $this->kitchens = new Kitchens();;
+        $this->recipes = new Recipes();
+        $this->kitchens = new Kitchens();
+        $this->services = new Services();
+        $this->rubrics = new Rubrics();
     }
 
 
@@ -38,8 +40,9 @@ class IndexController extends Controller
             [
                 'recipes' => $this->recipes->getRecipes(),
                 'kitchens' => $this->kitchens->getKitchens(),
-                'bestRecipes' => $this->recipes->getBestRecipes()[0],
-                'maxLevelRecipes' => $this->recipes->getMaxLevelRecipes()[0],
+                'bestRecipes' => $this->recipes->getBestRecipes(),
+                'maxLevelRecipes' => $this->recipes->getMaxLevelRecipes(),
+                'rubrics' => $this->rubrics->getRubrics(),
             ]);
     }
 
@@ -52,8 +55,6 @@ class IndexController extends Controller
             'kitchens' => $this->kitchens->getKitchens(),
         ]);
     }
-<<<<<<< Updated upstream
-=======
 
     public function showRubric($rubric_id) {
         return view('OneRubric', [
@@ -72,11 +73,12 @@ class IndexController extends Controller
         ];
 
 
+
         return view('SortRecipes')->with(
             [
                 'data' => $this->recipes->sort($data),
                 'kitchens' => $this->kitchens->getKitchens(),
             ]);
     }
->>>>>>> Stashed changes
+
 }

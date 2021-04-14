@@ -6,21 +6,30 @@
         @include('parts.sidebar')
 
         <div class="main w-5/6 w-full pl-10 pt-10 pr-9">
-    @include('parts.header')
+
+            @include('parts.header')
 
             <div class="body">
-    @include('parts.separator')
+                @include('parts.separator')
 
-                <div class="mt-8 flex justify-between flex-wrap">
-                    @if (isset($data))
-                        @foreach($data as $item)
-                            <div class="recipe-single-item text-center w-4/5 m-auto">
-{{--                                <div class="photo" style="background: url('/images/{{$item->image}}') no-repeat center"></div>--}}
-                                <a href="{{ route('show', $item->id) }}">
+                <div class="recipes-block mb-8">
+                    <div class="title uppercase text-2xl text-center mb-4 mt-4">Рецепты рубрики "{{$rubric->name}}"</div>
+                    <div class="body">
+                        <div class="filter w-3/5 m-auto text-center">
+                            <ul class="flex cursor-pointer justify-between">
+                                <li class="block list-none selected">Новые рецепты</li>
+                                <li class="block list-none ">Популярные</li>
+                                <li class="block list-none ">Рекомендуем</li>
+                            </ul>
+                        </div>
+                        <div class="mt-8 flex justify-between flex-wrap">
+                            @foreach($recipe as $item)
+                                <div class="recipe-item flex">
+                                    <div class="photo"><img src="/images/{{$item->image}}" alt="img"></div>
+                                    <a href="{{ route('show', $item->id) }}">
                                     <div class="description flex flex-col justify-between">
                                         <div class="top flex flex-col justify-between">
                                             <div class="title">{{$item->name}}</div>
-                                            <div class="photo"><img src="/images/{{$item->image}}" alt="img" class="m-auto"></div>
                                             <div class="short-info m-auto">
                                                 <ul class="flex justify-between m-auto text-center">
                                                     <li class="block list-none"><span class="material-icons">timer</span> {{$item->time}}</li>
@@ -30,10 +39,10 @@
                                                 </ul>
                                             </div>
                                             <div class="ingredients mt-4 mb-4">{{$item->description}}</div>
+                                            <div class="ingredients mt-4 mb-4">{{$item->ingredients}}</div>
                                         </div>
                                         <div class="bot like-share flex justify-between">
                                             <div class="likes"><span class="material-icons">favorite_border</span>&nbsp;<span class="count">{{$item->likes}}</span></div>
-
                                             <div class="share">
                                                 <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>
                                                 <a href="#"><img src="{{asset('/images/icons/fb.png')}}" alt=""></a>
@@ -41,15 +50,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                </a>
-                            </div>
-                        @endforeach
-                    @endif
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
 
-    @include('parts.separator')
+                @include('parts.separator')
             </div>
         </div>
+
         @include('parts.footer')
+
     </div>
 @endsection
