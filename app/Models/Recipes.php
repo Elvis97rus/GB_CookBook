@@ -50,6 +50,7 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
                 unset($data[$key]);
             } else {
                 switch($key) {
+
                     case 'kitchen_id':
                         array_push($dataForQuery, ['kitchen_id', '=', $value]);
                         break;
@@ -69,8 +70,8 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
         $result = Recipes::query()
                     ->where($dataForQuery)
                     ->get();
-
         return $result;
+
     }
 
 }

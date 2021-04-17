@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Kitchens;
 use App\Models\Recipes;
-use App\Models\Rubrics;
-use App\Models\Services;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Rubrics;
+use App\Models\Services;
 
 class IndexController extends Controller
 {
@@ -17,7 +17,7 @@ class IndexController extends Controller
     public $rubrics;
 
     /**
-    * IndexController constructor.
+    * IndexAdminController constructor.
     * @param Recipes $recipes
     * @param Kitchens $kitchens
     * @param Services $services
@@ -72,9 +72,13 @@ class IndexController extends Controller
             'ingredients' => $this->services->getFromURI('ingredients'),
         ];
 
+
+
         return view('SortRecipes')->with(
             [
                 'data' => $this->recipes->sort($data),
+                'kitchens' => $this->kitchens->getKitchens(),
             ]);
     }
+
 }
