@@ -4,19 +4,13 @@
 namespace App\Http\Controllers\admin;
 
 
-class IndexAdminController extends \Illuminate\Routing\Controller
+use App\Models\Recipes;
+use App\Http\Controllers\Controller;
+
+class IndexAdminController extends Controller
 {
     public function index()
     {
-        echo "Админка";
-die();
-        return view('index')->with(
-            [
-                'recipes' => $this->recipes->getRecipes(),
-                'kitchens' => $this->kitchens->getKitchens(),
-                'bestRecipes' => $this->recipes->getBestRecipes(),
-                'maxLevelRecipes' => $this->recipes->getMaxLevelRecipes(),
-                'rubrics' => $this->rubrics->getRubrics(),
-            ]);
+        return view('admin.index')->with([]);
     }
 }
