@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\IndexController;
 use App\Http\Controllers\admin\IndexAdminController;
+use App\Http\Controllers\admin\EditRecipesController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -31,7 +32,11 @@ Route::name('admin.')
     ->group(
         function () {
             Route::get('/', [IndexAdminController::class, 'index'])->name('index');
-            //Route::match(['get','post'],'/create', [RecipesEditController::class, 'create'])->name('create');
+            Route::match(['get','post'],'/createRecipes', [EditRecipesController::class, 'create'])->name('createRecipes');
+            Route::get('/editRecipes/', [EditRecipesController::class, 'index'])->name('editRecipes');
+            Route::get('/editRecipe/{recipe}', [EditRecipesController::class, 'edit'])->name('editRecipe');
+            Route::post('/updateRecipes/{recipe}', [EditRecipesController::class, 'update'])->name('updateRecipes');
+            Route::get('/destroyRecipes/{recipe}', [EditRecipesController::class, 'destroy'])->name('destroyRecipes');
         }
     );
 

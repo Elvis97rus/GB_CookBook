@@ -12,9 +12,9 @@
                 <div class="recipes-block mb-8">
                     <div class="body">
                         <div class="mt-8 flex justify-between flex-wrap">
-                            @foreach($recipe as $item)
+                            @forelse($recipe as $item)
                                 <div class="recipe-single-item text-center w-4/5 m-auto">
-                                    <div class="photo"><img src="/images/{{$item->image}}" alt="img" class="m-auto"></div>
+                                    <div class="photo"><img src="{{$item->image ?? asset('/storage/default.png')}}" alt="img" class="m-auto"></div>
                                     <div class="description flex flex-col justify-between">
                                         <div class="top flex flex-col justify-between">
                                             <div class="title font-bold">{{$item->name}}</div>
@@ -39,7 +39,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
+                            @empty
+                                <p>Рецепт не найден</p>
+                            @endforelse
                         </div>
                     </div>
                 </div>

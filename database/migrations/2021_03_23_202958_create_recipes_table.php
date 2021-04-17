@@ -20,7 +20,8 @@ class CreateRecipesTable extends Migration
                 ->comment('Название рецепта');
             $table
                 ->string('image')
-                ->comment('Адрес изображения');
+                ->comment('Адрес изображения')
+                ->nullable(true);
             $table
                 ->string('slug')
                 ->comment('Уникальная ссылка на рецепт');
@@ -39,10 +40,12 @@ class CreateRecipesTable extends Migration
                 ->comment('Список ингредиентов');
             $table
                 ->integer('likes')
-                ->comment('Общее количество лайков на рецепте');
+                ->comment('Общее количество лайков на рецепте')
+                ->default(0);
             $table
                 ->unsignedBigInteger('kitchen_id')
-                ->comment('ID кухни');
+                ->comment('ID кухни')
+                ->default(1);
             $table
                 ->foreign('kitchen_id')
                 ->references('id')
@@ -50,7 +53,8 @@ class CreateRecipesTable extends Migration
             $table
                 ->unsignedBigInteger('rubric_id')
                 ->nullable('true')
-                ->comment('ID рубрики');
+                ->comment('ID рубрики')
+                ->default(1);
             $table
                 ->foreign('rubric_id')
                 ->references('id')

@@ -11,26 +11,6 @@ use App\Models\Services;
 
 class IndexController extends Controller
 {
-    public $recipes;
-    public $kitchens;
-    public $services;
-    public $rubrics;
-
-    /**
-    * IndexAdminController constructor.
-    * @param Recipes $recipes
-    * @param Kitchens $kitchens
-    * @param Services $services
-    * @param Rubrics $rubrics
-    */
-    public function __construct(Recipes $recipes, Kitchens $kitchens, Services $services, Rubrics $rubrics)
-    {
-        $this->recipes = new Recipes();
-        $this->kitchens = new Kitchens();
-        $this->services = new Services();
-        $this->rubrics = new Rubrics();
-    }
-
 
     public function index()
     {
