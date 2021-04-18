@@ -79,7 +79,7 @@
                                     <div class="bot like-share flex justify-between">
                                         <div class="likes">
                                             <a href="#"
-                                               @if (in_array($item->id, $wishlistArr))
+                                               @if (in_array($recipe->id, $wishlistArr))
                                                  class="addToWishlist liked"
                                                @else
                                                    @guest
