@@ -34,7 +34,6 @@ class IndexController extends Controller
     }
 
     public function show($id) {
-
         $user_id = 0;
         if (Auth::user()) {
             $user_id = Auth::user()->id;
@@ -56,6 +55,11 @@ class IndexController extends Controller
     }
 
     public function sort() {
+        $user_id = 0;
+        if (Auth::user()) {
+            $user_id = Auth::user()->id;
+        }
+
         $data = [
             'kitchen_id' => $this->services->getFromURI('kitchen-type'),
             'level' => $this->services->getFromURI('difficulty'),
@@ -67,6 +71,7 @@ class IndexController extends Controller
             [
                 'data' => $this->recipes->sort($data),
                 'kitchens' => $this->kitchens->getKitchens(),
+                'wishlistArr' => $this->wishlist->getWishlistArr($user_id)
             ]);
     }
 
@@ -77,6 +82,7 @@ class IndexController extends Controller
         }else {
             return redirect()->route('login');
         }
+
         return view('wishlist')->with(
             [
                 'data' => $recipes,
@@ -85,9 +91,8 @@ class IndexController extends Controller
             ]);
     }
 
-    public function addToWishlist(Request $request){
+    public function addToWishlist(){
         Wishlist::create();
-//        dd($request->get('recipe'));
     }
 
 }
