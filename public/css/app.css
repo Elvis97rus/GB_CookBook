@@ -118,6 +118,10 @@
   padding: 5px 10px;
   background-color: #c7b084;
 }
+.main .body .liked .material-icons {
+  color: red;
+  font-weight: bold;
+}
 .main .body .hot-tags-top img {
   width: 100%;
 }

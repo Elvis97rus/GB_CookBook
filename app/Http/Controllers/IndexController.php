@@ -21,7 +21,6 @@ class IndexController extends Controller
         if (Auth::user()) {
             $user_id = Auth::user()->id;
         }
-        $recipes = $this->wishlist->getWishlistArr($user_id);
 
         return view('index')->with(
             [
@@ -30,22 +29,25 @@ class IndexController extends Controller
                 'bestRecipes' => $this->recipes->getBestRecipes(),
                 'maxLevelRecipes' => $this->recipes->getMaxLevelRecipes(),
                 'rubrics' => $this->rubrics->getRubrics(),
-                'wishlistArr' => $recipes
+                'wishlistArr' => $this->wishlist->getWishlistArr($user_id)
             ]);
     }
 
     public function show($id) {
+        $user_id = 0;
+        if (Auth::user()) {
+            $user_id = Auth::user()->id;
+        }
 
-        $kitchens = Kitchens::query()->get();
-
-        return view('OneRecipe', [
+        return view('oneRecipe', [
             'recipe' => $this->recipes->getOneRecipes($id),
             'kitchens' => $this->kitchens->getKitchens(),
+            'wishlistArr' => $this->wishlist->getWishlistArr($user_id)
         ]);
     }
 
     public function showRubric($rubric_id) {
-        return view('OneRubric', [
+        return view('oneRubric', [
             'recipe' => $this->recipes->getRubricRecipes($rubric_id),
             'kitchens' => $this->kitchens->getKitchens(),
             'rubric' => $this->rubrics->getOneRubrics($rubric_id),
@@ -53,6 +55,11 @@ class IndexController extends Controller
     }
 
     public function sort() {
+        $user_id = 0;
+        if (Auth::user()) {
+            $user_id = Auth::user()->id;
+        }
+
         $data = [
             'kitchen_id' => $this->services->getFromURI('kitchen-type'),
             'level' => $this->services->getFromURI('difficulty'),
@@ -60,10 +67,11 @@ class IndexController extends Controller
             'ingredients' => $this->services->getFromURI('ingredients'),
         ];
 
-        return view('SortRecipes')->with(
+        return view('sortRecipes')->with(
             [
                 'data' => $this->recipes->sort($data),
                 'kitchens' => $this->kitchens->getKitchens(),
+                'wishlistArr' => $this->wishlist->getWishlistArr($user_id)
             ]);
     }
 
@@ -74,6 +82,7 @@ class IndexController extends Controller
         }else {
             return redirect()->route('login');
         }
+
         return view('wishlist')->with(
             [
                 'data' => $recipes,
@@ -82,9 +91,8 @@ class IndexController extends Controller
             ]);
     }
 
-    public function addToWishlist(Request $request){
+    public function addToWishlist(){
         Wishlist::create();
-//        dd($request->get('recipe'));
     }
 
 }

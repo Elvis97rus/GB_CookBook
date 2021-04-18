@@ -141,6 +141,12 @@
         }
     }
     .body{
+        .liked{
+            .material-icons{
+                color: red;
+                font-weight: bold;
+            }
+        }
         .hot-tags-top{
             img{
                 width: 100%;
@@ -348,6 +354,9 @@
                     font-size: 1.3rem;
                     color: black;
                     margin: 10px auto;
+                }
+                .likes{
+
                 }
             }
         }
