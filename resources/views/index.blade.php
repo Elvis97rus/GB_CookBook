@@ -62,7 +62,7 @@
                     <div class="mt-8 flex justify-between flex-wrap">
                         @forelse($recipes as $recipe)
                         <div class="recipe-item flex">
-                            <div class="photo" style="background: url({{$recipe->image ?? asset('/storage/default.png')}}) no-repeat center"></div>
+                            <div class="photo" style="background: url({{$recipe->image ?? asset('/images/default.jpg')}}) no-repeat center"></div>
                             <a href="{{ route('show', $recipe->id) }}">
                                 <div class="description flex flex-col justify-between">
                                     <div class="top flex flex-col justify-between">
