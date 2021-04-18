@@ -10,7 +10,7 @@
 
             <div class="body">
     @include('parts.separator')
-
+{{--                {{dd($wishlistArr)}}--}}
                 <div class="mt-8 flex justify-between flex-wrap">
                     @if (isset($data))
                         @forelse($data as $item)
@@ -32,7 +32,27 @@
                                             <div class="ingredients mt-4 mb-4">{{$item->description}}</div>
                                         </div>
                                         <div class="bot like-share flex justify-between">
-                                            <div class="likes"><span class="material-icons">favorite_border</span>&nbsp;<span class="count">{{$item->likes}}</span></div>
+                                            <div class="likes">
+                                                <a href="#"
+                                                   @if (in_array($item->id, $wishlistArr))
+                                                   class="addToWishlist liked"
+                                                   @else
+                                                   @guest
+                                                   class="goToLogin"
+                                                   @else
+                                                   class="addToWishlist"
+                                                   @endguest
+                                                   @endif
+                                                   data-recipe-id="{{ $item->id }}"
+                                                   @guest
+                                                   @else
+                                                   data-user-id="{{Auth::user()->id}}"
+                                                    @endguest
+                                                >
+                                                    <span class="material-icons">favorite_border</span>&nbsp;
+                                                    <span class="count">{{$item->likes}}</span>
+                                                </a>
+                                            </div>
 
                                             <div class="share">
                                                 <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>

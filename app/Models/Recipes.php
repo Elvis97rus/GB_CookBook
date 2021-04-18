@@ -55,7 +55,7 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
                         array_push($dataForQuery, ['kitchen_id', '=', $value]);
                         break;
                     case 'level':
-                        array_push($dataForQuery, ['level', '<=', $value]);
+                        array_push($dataForQuery, ['level', '=', $value]);
                         break;
                     case 'time':
                         array_push($dataForQuery, ['time', '<=', $value]);
