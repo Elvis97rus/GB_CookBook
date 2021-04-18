@@ -65,11 +65,12 @@ class EditRecipesController extends Controller
 
             $path = Storage::putFile('public/recipes', $request->file('image'));
             $url = Storage::url($path);
+
         }
 
         //$this->validate($request, Recipes::rules(), [], Recipes::attributeNames());
 
-        $recipe->image = $url;
+        // $recipe->image = $url;
 
         $recipe->fill($request->except('image'))->save();
 

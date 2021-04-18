@@ -24,6 +24,7 @@
                     <a href="{{ route('admin.index') }}">админка</a>
                         @endif
                             <h1>ссылка на редакцию профиля</h1>
+                            <h1><a href="/wishlist"><3 Wishlist</a></h1>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
