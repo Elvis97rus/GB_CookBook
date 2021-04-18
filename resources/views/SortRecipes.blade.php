@@ -20,7 +20,7 @@
                                     <div class="description flex flex-col justify-between">
                                         <div class="top flex flex-col justify-between">
                                             <div class="title">{{$item->name}}</div>
-                                            <div class="photo"><img src="{{$item->image ?? asset('/storage/default.png')}}" alt="img" class="m-auto"></div>
+                                            <div class="photo"><img src="{{$item->image ?? asset('/images/default.jpg')}}" alt="img" class="m-auto"></div>
                                             <div class="short-info m-auto">
                                                 <ul class="flex justify-between m-auto text-center">
                                                     <li class="block list-none"><span class="material-icons">timer</span> {{$item->time}}</li>
