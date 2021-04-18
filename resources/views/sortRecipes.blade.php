@@ -14,7 +14,7 @@
                 <div class="mt-8 flex justify-between flex-wrap">
                     @if (isset($data))
                         @forelse($data as $item)
-                            <div class="recipe-single-item text-center w-4/5 m-auto">
+                            <div class="recipe-single-item text-center w-1/3 m-auto">
 {{--                                <div class="photo" style="background: url('/images/{{$item->image}}') no-repeat center"></div>--}}
                                 <a href="{{ route('show', $item->id) }}">
                                     <div class="description flex flex-col justify-between">

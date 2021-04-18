@@ -34,9 +34,15 @@ class IndexController extends Controller
     }
 
     public function show($id) {
+        $user_id = 0;
+        if (Auth::user()) {
+            $user_id = Auth::user()->id;
+        }
+
         return view('oneRecipe', [
             'recipe' => $this->recipes->getOneRecipes($id),
             'kitchens' => $this->kitchens->getKitchens(),
+            'wishlistArr' => $this->wishlist->getWishlistArr($user_id)
         ]);
     }
 
