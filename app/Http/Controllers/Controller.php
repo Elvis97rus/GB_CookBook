@@ -6,6 +6,7 @@ use App\Models\Kitchens;
 use App\Models\Recipes;
 use App\Models\Rubrics;
 use App\Models\Services;
+use App\Models\Wishlist;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -19,6 +20,7 @@ class Controller extends BaseController
     public $kitchens;
     public $services;
     public $rubrics;
+    public $wishlist;
 
     /**
      * IndexAdminController constructor.
@@ -26,12 +28,14 @@ class Controller extends BaseController
      * @param Kitchens $kitchens
      * @param Services $services
      * @param Rubrics $rubrics
+     * @param Wishlist $wishlist
      */
-    public function __construct(Recipes $recipes, Kitchens $kitchens, Services $services, Rubrics $rubrics)
+    public function __construct(Recipes $recipes, Kitchens $kitchens, Services $services, Rubrics $rubrics, Wishlist $wishlist)
     {
         $this->recipes = new Recipes();
         $this->kitchens = new Kitchens();
         $this->services = new Services();
         $this->rubrics = new Rubrics();
+        $this->wishlist = new Wishlist();
     }
 }

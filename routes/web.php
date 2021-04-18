@@ -25,6 +25,9 @@ Route::get('/rubric/{id}', [IndexController::class, 'showRubric'])->name('showRu
 
 Route::get('/sort', [IndexController::class, 'sort'])->name('sort');
 
+Route::get('/wishlist', [IndexController::class, 'goToWishlist'])->name('wishlist');
+Route::get('/wishlist/add', [IndexController::class, 'addToWishlist'])->name('wishlistAdd');
+
 Route::name('admin.')
     ->prefix('admin')
     ->namespace('Admin')
