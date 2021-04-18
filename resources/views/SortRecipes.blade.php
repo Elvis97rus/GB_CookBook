@@ -13,14 +13,14 @@
 
                 <div class="mt-8 flex justify-between flex-wrap">
                     @if (isset($data))
-                        @foreach($data as $item)
+                        @forelse($data as $item)
                             <div class="recipe-single-item text-center w-4/5 m-auto">
 {{--                                <div class="photo" style="background: url('/images/{{$item->image}}') no-repeat center"></div>--}}
                                 <a href="{{ route('show', $item->id) }}">
                                     <div class="description flex flex-col justify-between">
                                         <div class="top flex flex-col justify-between">
                                             <div class="title">{{$item->name}}</div>
-                                            <div class="photo"><img src="/images/{{$item->image}}" alt="img" class="m-auto"></div>
+                                            <div class="photo"><img src="{{$item->image ?? asset('/images/default.jpg')}}" alt="img" class="m-auto"></div>
                                             <div class="short-info m-auto">
                                                 <ul class="flex justify-between m-auto text-center">
                                                     <li class="block list-none"><span class="material-icons">timer</span> {{$item->time}}</li>
@@ -43,7 +43,9 @@
                                     </div>
                                 </a>
                             </div>
-                        @endforeach
+                        @empty
+                            <p>Рецепт не найден</p>
+                        @endforelse
                     @endif
                 </div>
 

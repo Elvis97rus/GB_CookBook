@@ -23,7 +23,7 @@
                             </ul>
                         </div>
                         <div class="mt-8 flex justify-between flex-wrap">
-                            @foreach($recipe as $item)
+                            @forelse($recipe as $item)
                                 <div class="recipe-item flex">
                                     <div class="photo"><img src="/images/{{$item->image}}" alt="img"></div>
                                     <a href="{{ route('show', $item->id) }}">
@@ -52,7 +52,9 @@
                                     </div>
                                     </a>
                                 </div>
-                            @endforeach
+                            @empty
+                                <p>Рубрики нет</p>
+                            @endforelse
                         </div>
                     </div>
                 </div>
