@@ -30,16 +30,21 @@ const app = new Vue({
     el: '#app',
 });
 
-$('.menu-btn').on('click', function (){
-    console.log('asd');
-    $('.sidebar').toggleClass('hidden');
-    $('.main').toggleClass('w-full slided');
-    $('.footer').toggleClass('w-full slided');
-});
-let slider = document.getElementById("volume");
-let output = document.getElementById("cook-time-value");
-output.innerHTML = slider.value;
 
-slider.oninput = function() {
-    output.innerHTML = this.value;
+url = window.location.href;
+if (!url.includes("/login")){
+    $('.menu-btn').on('click', function (){
+        console.log('asd');
+        $('.sidebar').toggleClass('hidden');
+        $('.main').toggleClass('w-full slided');
+        $('.footer').toggleClass('w-full slided');
+    });
+    let slider = document.getElementById("volume");
+    let output = document.getElementById("cook-time-value");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
 }
+

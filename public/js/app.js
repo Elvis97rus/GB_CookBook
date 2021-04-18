@@ -68,19 +68,23 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
-$('.menu-btn').on('click', function () {
-  console.log('asd');
-  $('.sidebar').toggleClass('hidden');
-  $('.main').toggleClass('w-full slided');
-  $('.footer').toggleClass('w-full slided');
-});
-var slider = document.getElementById("volume");
-var output = document.getElementById("cook-time-value");
-output.innerHTML = slider.value;
+url = window.location.href;
 
-slider.oninput = function () {
-  output.innerHTML = this.value;
-};
+if (!url.includes("/login")) {
+  $('.menu-btn').on('click', function () {
+    console.log('asd');
+    $('.sidebar').toggleClass('hidden');
+    $('.main').toggleClass('w-full slided');
+    $('.footer').toggleClass('w-full slided');
+  });
+  var slider = document.getElementById("volume");
+  var output = document.getElementById("cook-time-value");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function () {
+    output.innerHTML = this.value;
+  };
+}
 
 /***/ }),
 
