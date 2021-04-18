@@ -230,6 +230,9 @@
   width: 49.5%;
   margin-bottom: 10px;
 }
+.main .body .recipes-block .recipe-item a {
+  display: contents;
+}
 .main .body .recipes-block .recipe-item .photo {
   width: 43%;
   background-size: contain;
@@ -277,6 +280,10 @@
 }
 .main .body .recipes-block .like-share .likes {
   padding: 5px 10px;
+}
+.main .body .recipes-block .like-share .likes .liked .material-icons {
+  color: red;
+  font-weight: bold;
 }
 .main .body .recipes-block .like-share .likes span {
   font-size: 1.2rem;
