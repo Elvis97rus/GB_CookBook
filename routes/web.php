@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//new test
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
