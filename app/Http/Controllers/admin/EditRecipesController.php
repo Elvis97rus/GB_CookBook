@@ -12,11 +12,9 @@ class EditRecipesController extends Controller
 {
     public function index() {
 
-        $recipes = Recipes::all();
-
-        return view('admin.editRecipes',
+        return view('admin.recipes.editRecipes',
             [
-                'recipes' => $recipes,
+                'recipes' => Recipes::all()
             ]);
     }
 
@@ -38,17 +36,17 @@ class EditRecipesController extends Controller
 
             $recipe->fill($request->except('image'))->save();
 
-            return redirect()->route('admin.createRecipes')->with('success', 'Рецепт добавлен!');
+            return redirect()->route('admin.editRecipes')->with('success', 'Рецепт добавлен!');
         }
 
-        return view('admin.createRecipes', [
+        return view('admin.recipes.createRecipes', [
             'recipe' => new Recipes(),
             'kitchens' => $this->kitchens->getKitchens(),
         ]);
     }
 
     public function edit(Recipes $recipe) {
-        return view('admin.createRecipes', [
+        return view('admin.recipes.createRecipes', [
             'recipe' => $recipe,
             'kitchens' => $this->kitchens->getKitchens(),
         ]);
@@ -71,10 +69,9 @@ class EditRecipesController extends Controller
 
         //$this->validate($request, Recipes::rules(), [], Recipes::attributeNames());
 
-
         $recipe->fill($request->except('image'))->save();
 
-        return redirect()->route('admin.editRecipe', $recipe->id)->with('success', 'Рецепт изменен!');
+        return back()->withInput()->with('success', 'Рецепт изменен!');
     }
 
     public function destroy(Recipes $recipe) {
@@ -86,7 +83,7 @@ class EditRecipesController extends Controller
 
         $recipe->delete();
 
-        return redirect()->route('admin.editRecipes')->with('success', 'Рецепт успешно удален');
+        return back()->withInput()->with('success', 'Рецепт успешно удален');
     }
 
     public function addRecipeRubric(Rubrics $rubric, Recipes $recipe) {
@@ -95,6 +92,6 @@ class EditRecipesController extends Controller
 
         $recipe->save();
 
-        return redirect()->route('admin.addRecipesRubric', ['rubric' => $rubric, 'recipes' => Recipes::all(),])->with('success', 'Рецепт успешно добавлен в рубкрику');
+        return back()->withInput()->with('success', 'Рецепт успешно добавлен в рубкрику');
     }
 }

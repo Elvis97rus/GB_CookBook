@@ -70,7 +70,7 @@ class   EditRubricsController extends Controller
 
         $rubric->fill($request->except('image'))->save();
 
-        return redirect()->route('admin.editRubric', $rubric->id)->with('success', 'Рубркиа изменена!');
+        return back()->withInput()->with('success', 'Рубркиа изменена!');
     }
 
     public function destroyRecipes(Rubrics $rubric, Recipes $recipe) {
@@ -91,7 +91,7 @@ class   EditRubricsController extends Controller
 
         $rubric->delete();
 
-        return redirect()->route('admin.editRubrics')->with('success', 'Рубрика успешна удалена');
+        return back()->withInput()->with('success', 'Рубрика успешна удалена');
     }
 
     public function addRecipesRubric(Rubrics $rubric) {
