@@ -25,7 +25,8 @@ class CreateRubricsTable extends Migration
                 ->comment('Уникальная ссылка на рубрику');
             $table
                 ->string('image')
-                ->comment('Адрес изображения');
+                ->comment('Адрес изображения')
+                ->nullable(true);
             $table->timestamps();
         });
     }

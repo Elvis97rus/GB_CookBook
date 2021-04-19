@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\Recipes;
+use App\Models\Rubrics;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
@@ -70,7 +71,6 @@ class EditRecipesController extends Controller
 
         //$this->validate($request, Recipes::rules(), [], Recipes::attributeNames());
 
-        // 
 
         $recipe->fill($request->except('image'))->save();
 
@@ -87,5 +87,14 @@ class EditRecipesController extends Controller
         $recipe->delete();
 
         return redirect()->route('admin.editRecipes')->with('success', 'Рецепт успешно удален');
+    }
+
+    public function addRecipeRubric(Rubrics $rubric, Recipes $recipe) {
+
+        $recipe->rubric_id = $rubric->id;
+
+        $recipe->save();
+
+        return redirect()->route('admin.addRecipesRubric', ['rubric' => $rubric, 'recipes' => Recipes::all(),])->with('success', 'Рецепт успешно добавлен в рубкрику');
     }
 }

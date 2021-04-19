@@ -58,7 +58,8 @@ class CreateRecipesTable extends Migration
             $table
                 ->foreign('rubric_id')
                 ->references('id')
-                ->on('rubrics');
+                ->on('rubrics')
+                ->onDelete("set null");
             $table->timestamps();
         });
     }

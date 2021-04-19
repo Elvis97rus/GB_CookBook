@@ -38,7 +38,7 @@
                                     <span class="tag"></span>
                                     <span class="name">{{$rubric->name}}</span>
                                 </div>
-                                <img src="{{'images/top-tags/' . $rubric->image ?? asset('images/top-tags/2_1.png')}}" class="" alt="">
+                                <img src="{{$rubric->image ?? asset('/images/defaultRubric.png')}}" class="" alt="">
                             </div>
                         </a>
                     @empty
