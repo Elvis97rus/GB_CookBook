@@ -54,7 +54,7 @@ class CreateRecipesTable extends Migration
                 ->unsignedBigInteger('rubric_id')
                 ->nullable('true')
                 ->comment('ID рубрики')
-                ->default(1);
+                ->default(null);
             $table
                 ->foreign('rubric_id')
                 ->references('id')
