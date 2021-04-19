@@ -17,8 +17,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-//НОВЫЙ ТЕСТ 2
-
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
 Route::get('/one/{id}', [IndexController::class, 'show'])->name('show');
