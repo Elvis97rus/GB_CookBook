@@ -98,7 +98,7 @@
                                            class="custom-file-input"
                                            id="customFile"
                                            name="image"
-                                           required>
+                                           >
                                 </div>
 
                             </div>
