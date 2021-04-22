@@ -18,32 +18,32 @@ class RubricsSeeder extends Seeder
             [
                 "name" => "Горячие блюда",
                 "slug" => "HotDishes",
-                "image" => "2_1.png",
+                "image" => null,
             ],
             [
                 "name" => "Простые блюда",
                 "slug" => "SimplyDishes",
-                "image" => "2_1.png",
+                "image" => null,
             ],
             [
                 "name" => "Блюда за 30 минут",
                 "slug" => "30Minutes",
-                "image" => "2_2_1.png"
+                "image" => null
             ],
             [
                 "name" => "Рубрика 213",
                 "slug" => "213",
-                "image" => "2_2_2.png"
+                "image" => null
             ],
             [
                 "name" => "Рубрика 555",
                 "slug" => "555",
-                "image" => "2_2_1.png"
+                "image" => null
             ],
             [
                 "name" => "Прочее",
                 "slug" => "Other",
-                "image" => "2_1.png"
+                "image" => null
             ],
         ];
 

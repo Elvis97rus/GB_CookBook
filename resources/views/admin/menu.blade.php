@@ -4,7 +4,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('index') }}">На сайт</a></li>
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Админка</a></li>
-        <li class="breadcrumb-item"><a href="#">Редактировать рубрики</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('admin.editRubrics') }}">Редактировать рубрики</a></li>
         <li class="breadcrumb-item"><a href="{{ route('admin.editRecipes') }}">Редактировать рецепты</a></li>
         <li class="breadcrumb-item"><a href="#">Редактировать профили</a></li>
     </ol>
