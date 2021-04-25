@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="ingredientsRecipe">Ингридиенты</label>
+                                <label for="ingredientsRecipe">Ингредиенты</label>
                                 <input type="text"
                                        name="ingredients"
                                        id="ingredientsRecipe"

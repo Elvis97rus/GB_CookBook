@@ -19,7 +19,7 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
     ];
 
     public function getRecipes() {
-        return  $recipes = Recipes::query()->paginate(6);
+        return  $recipes = Recipes::query()->paginate(15);
     }
 
     public function getOneRecipes($id) {

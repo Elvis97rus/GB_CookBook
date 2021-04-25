@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\IndexController;
 use App\Http\Controllers\admin\IndexAdminController;
 use App\Http\Controllers\admin\EditRecipesController;
+use App\Http\Controllers\admin\EditUsersController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -49,6 +50,12 @@ Route::name('admin.')
             Route::get('/destroyRecipeRubric/{rubric}/{recipe}', [EditRubricsController::class, 'destroyRecipes'])->name('destroyRecipeRubric');
             Route::get('/destroyRubric/{rubric}', [EditRubricsController::class, 'destroy'])->name('destroyRubric');
             Route::get('/addRecipesRubric/{rubric}', [EditRubricsController::class, 'addRecipesRubric'])->name('addRecipesRubric');
+            
+            Route::match(['get','post'],'/createUser', [EditUsersController::class, 'create'])->name('createUser');
+            Route::get('/editUsers/', [EditUsersController::class, 'index'])->name('editUsers');
+            Route::get('/editUser/{user}', [EditUsersController::class, 'edit'])->name('editUser');
+            Route::post('/updateUser/{user}', [EditUsersController::class, 'update'])->name('updateUser');
+            Route::get('/destroyUser/{user}', [EditUsersController::class, 'destroy'])->name('destroyUser');
         }
     );
 
