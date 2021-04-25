@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kitchens;
 use App\Models\Recipes;
+use App\Models\User;
 use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,6 +25,7 @@ class IndexController extends Controller
 
         return view('index')->with(
             [
+                'users' => User::query()->get(),
                 'recipes' => $this->recipes->getRecipes(),
                 'kitchens' => $this->kitchens->getKitchens(),
                 'bestRecipes' => $this->recipes->getBestRecipes(),
@@ -93,6 +95,16 @@ class IndexController extends Controller
 
     public function addToWishlist(){
         Wishlist::create();
+    }
+
+    public function showRecipesForKitchen($kitchen_id) {
+
+        return view('recipesForKitchen', [
+                'kitchens' => $this->kitchens->getKitchens(),
+                'recipes' => $this->recipes->getRecipesForKitchen($kitchen_id),
+            ]
+        );
+
     }
 
 }

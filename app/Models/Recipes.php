@@ -74,4 +74,8 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
 
     }
 
+    public function getRecipesForKitchen($id) {
+        return $rubrics = Recipes::query()->where('kitchen_id', $id)->get();
+    }
+
 }

@@ -117,31 +117,26 @@
 
             <div class="hot-pick  flex flex-col justify-between">
                 <div class="title uppercase text-2xl text-center mb-4 mt-4">#ГОРЯЧАЯПОДБОРКА</div>
+
                 <div class="body flex mt-10 justify-between">
-                    <div class="hot-pick-item"><span>похмельные рецепты</span></div>
-                    <div class="hot-pick-item"><span>масленица</span></div>
-                    <div class="hot-pick-item"><span>рецепты для детей</span></div>
-                    <div class="hot-pick-item"><span>здоровое питание</span></div>
+
+                    @foreach($kitchens as $kitchen)
+
+                        <div class="hot-pick-item"><a href="{{ route('showKitchen', $kitchen->id) }}"><span>{{$kitchen->name}}</span> </a></div>
+
+                    @endforeach
+
                 </div>
+
             </div>
 
             <div class="top-authors w-4/5 flex flex-col justify-between m-auto">
                 <div class="title uppercase text-2xl text-center mb-4 mt-4">Топ авторов</div>
                 <div class="body flex mt-4 justify-between">
-                    <div class="author-item"></div>
-                    <div class="author-item"></div>
-                    <div class="author-item"></div>
-                    <div class="author-item"></div>
-                    <div class="author-item"></div>
-                    <div class="author-item"></div>
-                    <div class="author-item"></div>
-                    <div class="author-item"></div>
-                    <div class="author-item"></div>
-                    <div class="author-item"></div>
-                    <div class="author-item"></div>
+                    @foreach($users as $user)
+                        <div class="author-item" style="text-align: center">{{ $user->foto }}</div>
+                    @endforeach
                 </div>
-            </div>
-        </div>
     </div>
         @include('parts.footer')
 </div>

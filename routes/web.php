@@ -24,6 +24,7 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/one/{id}', [IndexController::class, 'show'])->name('show');
 
 Route::get('/rubric/{id}', [IndexController::class, 'showRubric'])->name('showRubric');
+Route::get('/kitchen/{id}', [IndexController::class, 'showRecipesForKitchen'])->name('showKitchen');
 
 Route::get('/sort', [IndexController::class, 'sort'])->name('sort');
 
@@ -50,7 +51,7 @@ Route::name('admin.')
             Route::get('/destroyRecipeRubric/{rubric}/{recipe}', [EditRubricsController::class, 'destroyRecipes'])->name('destroyRecipeRubric');
             Route::get('/destroyRubric/{rubric}', [EditRubricsController::class, 'destroy'])->name('destroyRubric');
             Route::get('/addRecipesRubric/{rubric}', [EditRubricsController::class, 'addRecipesRubric'])->name('addRecipesRubric');
-            
+
             Route::match(['get','post'],'/createUser', [EditUsersController::class, 'create'])->name('createUser');
             Route::get('/editUsers/', [EditUsersController::class, 'index'])->name('editUsers');
             Route::get('/editUser/{user}', [EditUsersController::class, 'edit'])->name('editUser');
