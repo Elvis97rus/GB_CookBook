@@ -61,51 +61,53 @@
                     </div>
                     <div class="mt-8 flex justify-between flex-wrap">
                         @forelse($recipes as $recipe)
-                        <div class="recipe-item flex">
-                            <a href="{{ route('show', $recipe->id) }}"><div class="photo" style="background: url({{$recipe->image ?? asset('/images/default.jpg')}}) no-repeat center"></div></a>
-                                <div class="description flex flex-col justify-between">
-                                    <div class="top flex flex-col justify-between">
-                                        <a href="{{ route('show', $recipe->id) }}"><div class="title">{{$recipe->name}}</div></a>
-                                        <div class="short-info m-auto">
-                                            <ul class="flex justify-between m-auto text-center">
-                                                <li class="block list-none"><span class="material-icons">timer</span> {{$recipe->time}}</li>
-                                                <li class="block list-none"><span class="material-icons">whatshot</span>
-                                                    Сложность {{$recipe->level}}</li>
-                                                <li class="block list-none"><span class="material-icons">directions_run</span> 125 ккал</li>
-                                            </ul>
+                            @if ($recipe->is_true)
+                                <div class="recipe-item flex">
+                                    <a href="{{ route('show', $recipe->id) }}"><div class="photo" style="background: url({{$recipe->image ?? asset('/images/default.jpg')}}) no-repeat center"></div></a>
+                                    <div class="description flex flex-col justify-between">
+                                        <div class="top flex flex-col justify-between">
+                                            <a href="{{ route('show', $recipe->id) }}"><div class="title">{{$recipe->name}}</div></a>
+                                            <div class="short-info m-auto">
+                                                <ul class="flex justify-between m-auto text-center">
+                                                    <li class="block list-none"><span class="material-icons">timer</span> {{$recipe->time}}</li>
+                                                    <li class="block list-none"><span class="material-icons">whatshot</span>
+                                                        Сложность {{$recipe->level}}</li>
+                                                    <li class="block list-none"><span class="material-icons">directions_run</span> 125 ккал</li>
+                                                </ul>
+                                            </div>
+                                            <div class="ingredients mt-4 mb-4">{{$recipe->description}}</div>
                                         </div>
-                                        <div class="ingredients mt-4 mb-4">{{$recipe->description}}</div>
-                                    </div>
-                                    <div class="bot like-share flex justify-between">
-                                        <div class="likes">
-                                            <a href="#"
-                                               @if (in_array($recipe->id, $wishlistArr))
-                                                 class="addToWishlist liked"
-                                               @else
-                                                   @guest
-                                                     class="goToLogin"
+                                        <div class="bot like-share flex justify-between">
+                                            <div class="likes">
+                                                <a href="#"
+                                                   @if (in_array($recipe->id, $wishlistArr))
+                                                   class="addToWishlist liked"
                                                    @else
-                                                     class="addToWishlist"
+                                                   @guest
+                                                   class="goToLogin"
+                                                   @else
+                                                   class="addToWishlist"
                                                    @endguest
-                                               @endif
-                                               data-recipe-id="{{ $recipe->id }}"
-                                               @guest
-                                               @else
-                                               data-user-id="{{Auth::user()->id}}"
-                                               @endguest
-                                            >
-                                                <span class="material-icons">favorite_border</span>&nbsp;
-                                                <span class="count">{{$recipe->likes}}</span>
-                                            </a>
-                                        </div>
-                                        <div class="share">
-                                            <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>
-                                            <a href="#"><img src="{{asset('/images/icons/fb.png')}}" alt=""></a>
-                                            <a href="#"><img src="{{asset('/images/icons/ok.png')}}" alt=""></a>
+                                                   @endif
+                                                   data-recipe-id="{{ $recipe->id }}"
+                                                   @guest
+                                                   @else
+                                                   data-user-id="{{Auth::user()->id}}"
+                                                    @endguest
+                                                >
+                                                    <span class="material-icons">favorite_border</span>&nbsp;
+                                                    <span class="count">{{$recipe->likes}}</span>
+                                                </a>
+                                            </div>
+                                            <div class="share">
+                                                <a href="#"><img src="{{asset('/images/icons/vk.png')}}" alt=""></a>
+                                                <a href="#"><img src="{{asset('/images/icons/fb.png')}}" alt=""></a>
+                                                <a href="#"><img src="{{asset('/images/icons/ok.png')}}" alt=""></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                        </div>
+                            @endif
                             @empty
                                 <p>Нет рецептов</p>
                             @endforelse

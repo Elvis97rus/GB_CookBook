@@ -23,9 +23,10 @@ class RecipesSeeder extends Seeder
                 "level" => 5,
                 "time" => 140,
                 "ingredients" => "Мясо на кости - 800 г, Фасоль - 50 г, Свекла - 400 г, Капуста белокочанная - 250 г, Картофель мелкий - 6 шт., Морковь - 2 шт., Лук репчатый - 2 шт., Томатная паста - 140 г, Лавровый лист - 3 шт., Сахар - 1 ст. ложка, Уксус 9% - 1 ст. ложка, Перец черный горошком - 10 шт., Соль - 3 ч. ложки, Лук зеленый - 5 г, Чеснок - 3 зубчика, Укроп свежий - 15 г, Петрушка свежая - 15 г, Масло растительное - 3 ст. ложки, Вода - 2,5 л, Сметана (для подачи) - по вкусу",
-                "likes" => 76,
+                "likes" => 100,
                 "kitchen_id" => 1,
                 "rubric_id" => 1,
+                "is_true" => true,
             ],
             [
                 "name" => "Ленивые пельмени",
@@ -38,6 +39,7 @@ class RecipesSeeder extends Seeder
                 "likes" => 88,
                 "kitchen_id" => 1,
                 "rubric_id" => 1,
+                "is_true" => false,
             ],
             [
                 "name" => "Гречка по-купечески",
@@ -47,9 +49,10 @@ class RecipesSeeder extends Seeder
                 "level" => 3,
                 "time" => 75,
                 "ingredients" => "Гречневая крупа - 1 стакан, Фарш мясной - 300 г, Лук репчатый - 1 шт., Морковь - 1 шт., Чеснок - 2 зубка, Паста томатная - 2 ст. ложки, Масло подсолнечное - 20 г, Соль - по вкусу",
-                "likes" => 88,
+                "likes" => 120,
                 "kitchen_id" => 1,
                 "rubric_id" => 1,
+                "is_true" => true,
             ],
             [
                 "name" => "Курник",
@@ -62,6 +65,7 @@ class RecipesSeeder extends Seeder
                 "likes" => 33,
                 "kitchen_id" => 1,
                 "rubric_id" => 1,
+                "is_true" => true,
             ],
             [
                 "name" => "Ризотто с курицей и грибами",
@@ -74,6 +78,7 @@ class RecipesSeeder extends Seeder
                 "likes" => 12,
                 "kitchen_id" => 2,
                 "rubric_id" => 1,
+                "is_true" => true,
             ],
             [
                 "name" => "Паста Карбонара",
@@ -86,6 +91,7 @@ class RecipesSeeder extends Seeder
                 "likes" => 56,
                 "kitchen_id" => 2,
                 "rubric_id" => 2,
+                "is_true" => true,
             ],
             [
                 "name" => "Крем-карамель",
@@ -98,6 +104,7 @@ class RecipesSeeder extends Seeder
                 "likes" => 4,
                 "kitchen_id" => 4,
                 "rubric_id" => 2,
+                "is_true" => true,
             ],
             [
                 "name" => "Паэлья с курицей и горошком",
@@ -110,6 +117,7 @@ class RecipesSeeder extends Seeder
                 "likes" => 65,
                 "kitchen_id" => 4,
                 "rubric_id" => 3,
+                "is_true" => true,
             ],
             [
                 "name" => "Картофельная тортилья",
@@ -122,6 +130,7 @@ class RecipesSeeder extends Seeder
                 "likes" => 21,
                 "kitchen_id" => 4,
                 "rubric_id" => 3,
+                "is_true" => true,
             ],
             [
                 "name" => "Хачапури по-аджарски",
@@ -134,6 +143,7 @@ class RecipesSeeder extends Seeder
                 "likes" => 24,
                 "kitchen_id" => 3,
                 "rubric_id" => 3,
+                "is_true" => true,
             ],
         ];
 
