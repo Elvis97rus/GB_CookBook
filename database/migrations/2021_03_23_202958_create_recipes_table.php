@@ -60,6 +60,9 @@ class CreateRecipesTable extends Migration
                 ->references('id')
                 ->on('rubrics')
                 ->onDelete("set null");
+            $table
+                ->boolean('is_true')
+                ->default(false);
             $table->timestamps();
         });
     }

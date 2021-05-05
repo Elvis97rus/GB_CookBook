@@ -27,7 +27,6 @@
 
         @empty
             <h1  class="display-1">Рецептов нет</h1>
-
         @endforelse
 
         </div>

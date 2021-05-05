@@ -16,6 +16,7 @@ class Recipes extends \Illuminate\Database\Eloquent\Model
         'ingredients',
         'likes',
         'kitchen_id',
+        'is_true',
     ];
 
     public function getRecipes() {

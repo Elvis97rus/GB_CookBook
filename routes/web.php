@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\EditRubricsController;
+use App\Http\Controllers\admin\ModerationRecipesController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\IndexController;
 use App\Http\Controllers\admin\IndexAdminController;
@@ -43,6 +44,7 @@ Route::name('admin.')
             Route::get('/editRecipe/{recipe}', [EditRecipesController::class, 'edit'])->name('editRecipe');
             Route::post('/updateRecipes/{recipe}', [EditRecipesController::class, 'update'])->name('updateRecipes');
             Route::get('/destroyRecipes/{recipe}', [EditRecipesController::class, 'destroy'])->name('destroyRecipes');
+
             Route::get('/addRecipeRubric/{rubric}/{recipe}', [EditRecipesController::class, 'addRecipeRubric'])->name('addRecipeRubric');
             Route::match(['get','post'],'/createRubrics', [EditRubricsController::class, 'create'])->name('createRubrics');
             Route::get('/editRubrics/', [EditRubricsController::class, 'index'])->name('editRubrics');
@@ -57,6 +59,9 @@ Route::name('admin.')
             Route::get('/editUser/{user}', [EditUsersController::class, 'edit'])->name('editUser');
             Route::post('/updateUser/{user}', [EditUsersController::class, 'update'])->name('updateUser');
             Route::get('/destroyUser/{user}', [EditUsersController::class, 'destroy'])->name('destroyUser');
+
+            Route::get('/moderationRecipes', [ModerationRecipesController::class, 'index'])->name('moderationRecipes');
+            Route::get('/moderationRecipes/{recipe}', [ModerationRecipesController::class, 'toggleRecipe'])->name('moderationToggleRecipe');
         }
     );
 
