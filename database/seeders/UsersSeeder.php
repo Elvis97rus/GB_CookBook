@@ -23,7 +23,18 @@ class UsersSeeder extends Seeder
             'password' => Hash::make('admin'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
-            'is_admin' => true,
+            'is_admin' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'user',
+            'email' => 'user@user.ru',
+            'password' => Hash::make('user'),
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+            'is_admin' => 2,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

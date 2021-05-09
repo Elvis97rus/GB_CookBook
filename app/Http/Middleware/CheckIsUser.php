@@ -1,12 +1,14 @@
 <?php
 
+
 namespace App\Http\Middleware;
+
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CheckIsAdmin
+class CheckIsUser
 {
     /**
      * Handle an incoming request.
@@ -17,7 +19,7 @@ class CheckIsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->is_admin != 1) {
+        if (Auth::user()->is_admin != 2) {
             return redirect()->route('index')->with('success', 'Вы не администратор!'); //todo изменить на errors
         }
 

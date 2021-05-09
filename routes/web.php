@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\admin\EditRubricsController;
-use App\Http\Controllers\admin\ModerationRecipesController;
+use App\Http\Controllers\Admin\EditRubricsController;
+use App\Http\Controllers\Admin\ModerationRecipesController;
+use App\Http\Controllers\User\IndexUserController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\IndexController;
-use App\Http\Controllers\admin\IndexAdminController;
-use App\Http\Controllers\admin\EditRecipesController;
-use App\Http\Controllers\admin\EditUsersController;
+use App\Http\Controllers\Admin\IndexAdminController;
+use App\Http\Controllers\Admin\EditRecipesController;
+use App\Http\Controllers\Admin\EditUsersController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -62,6 +63,17 @@ Route::name('admin.')
 
             Route::get('/moderationRecipes', [ModerationRecipesController::class, 'index'])->name('moderationRecipes');
             Route::get('/moderationRecipes/{recipe}', [ModerationRecipesController::class, 'toggleRecipe'])->name('moderationToggleRecipe');
+        }
+    );
+
+Route::name('user.')
+    ->prefix('user')
+    ->namespace('User')
+    ->middleware(['is_user', 'auth'])
+    ->group(
+        function () {
+            Route::get('/editProfile/{id}', [IndexUserController::class, 'edit'])->name('editProfile');
+            Route::get('/addRecipe/{id}', [IndexUserController::class, 'addRecipe'])->name('addUserRecipe');
         }
     );
 

@@ -19,12 +19,13 @@
                 <span class="pr-8 pl-2 material-icons">people</span>
 
                     <h1>{{ Auth::user()->name }}</h1>
-
-                        @if (Auth::user()->is_admin)
-                    <a href="{{ route('admin.index') }}">админка</a>
+                        @if (Auth::user()->is_admin == 1)
+                            <a href="{{ route('admin.index') }}">админка</a>
+                        @elseif (Auth::user()->is_admin == 2)
+                            <a href="{{ route('user.editProfile', Auth::user()->id) }}">Редактировать профиль</a>
+                            <a href="{{ route('user.addUserRecipe', Auth::user()->id) }}">Добавить свой рецепт</a>
                         @endif
-                            <h1>ссылка на редакцию профиля</h1>
-                            <h1><a href="/wishlist"><3 Wishlist</a></h1>
+                            <a href="/wishlist">Избранное</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -74,4 +75,12 @@
             </form>
         </div>
     </div>
+</div>
+
+<div>
+    @if (session('success'))
+        <div>
+            {{ session('success') }}
+        </div>
+    @endif
 </div>
