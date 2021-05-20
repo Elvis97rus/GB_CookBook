@@ -3,10 +3,10 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container-lg">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">              
+                <div class="card">
                     <div class="card-body">
                         <form method="POST"
                               action="@if (!$user->id){{ route('admin.createUser') }}@else{{ route('admin.updateUser', $user) }}@endif"
@@ -37,9 +37,7 @@
                                 <input type="password"
                                        name="password"
                                        id="passwordUser"
-                                       class="form-control"
-                                       value="{{ old('password') ?? $user->password}}"
-                                       required>
+                                       class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="adminUser">Дать права администратора?</label>

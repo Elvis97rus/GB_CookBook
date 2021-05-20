@@ -20,10 +20,10 @@
 
                     <h1>{{ Auth::user()->name }}</h1>
                         @if (Auth::user()->is_admin == 1)
-                            <a href="{{ route('admin.index') }}">админка</a>
+                            <a href="{{ route('admin.index') }}">Администирование</a>
                         @elseif (Auth::user()->is_admin == 2)
-                            <a href="{{ route('user.editProfile', Auth::user()->id) }}">Редактировать профиль</a>
-                            <a href="{{ route('user.addUserRecipe', Auth::user()->id) }}">Добавить свой рецепт</a>
+{{--                            <a href="{{ route('user.editProfile', Auth::user()->id) }}">Редактировать профиль</a>--}}
+{{--                            <a href="{{ route('user.addUserRecipe', Auth::user()->id) }}">Добавить свой рецепт</a>--}}
                         @endif
                             <a href="/wishlist">Избранное</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"

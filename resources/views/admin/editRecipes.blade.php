@@ -2,7 +2,7 @@
 @include('admin.menu')
 @section('content')
 
-    <div class="container">
+    <div class="container-lg">
         <h1  class="display-1">Редакция рецептов</h1>
         <a href="{{ route('admin.createRecipes') }}" class="btn btn-danger">Создать новый рецепт</a>
 

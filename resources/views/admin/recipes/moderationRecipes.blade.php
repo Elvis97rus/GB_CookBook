@@ -2,7 +2,7 @@
 @include('admin.menu')
 @section('content')
 
-    <div class="container">
+    <div class="container-lg">
 
         @forelse($recipes as $recipe)
 

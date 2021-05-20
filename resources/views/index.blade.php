@@ -131,15 +131,6 @@
                 </div>
 
             </div>
-
-            <div class="top-authors w-4/5 flex flex-col justify-between m-auto">
-                <div class="title uppercase text-2xl text-center mb-4 mt-4">Топ авторов</div>
-                <div class="body flex mt-4 justify-between">
-                    @foreach($users as $user)
-                        <div class="author-item" style="text-align: center">{{ $user->foto }}</div>
-                    @endforeach
-                </div>
-    </div>
         @include('parts.footer')
 </div>
 @endsection
