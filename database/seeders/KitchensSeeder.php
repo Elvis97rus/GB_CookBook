@@ -18,18 +18,22 @@ class KitchensSeeder extends Seeder
             [
                 "name" => "Русская кухня",
                 "slug" => "rusKitchen",
+                "img" => "rus"
             ],
             [
                 "name" => "Итальянская кухня",
-                "slug" => "italyKitchen"
+                "slug" => "italyKitchen",
+                "img" => "ital"
             ],
             [
                 "name" => "Грузинская кухня",
-                "slug" => "georgianKitchen"
+                "slug" => "georgianKitchen",
+                "img" => "gruz"
             ],
             [
                 "name" => "Испанская кухня",
-                "slug" => "spanishKitchen"
+                "slug" => "spanishKitchen",
+                "img" => "span"
             ],
         ];
 

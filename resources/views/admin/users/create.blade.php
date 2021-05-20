@@ -37,7 +37,9 @@
                                 <input type="password"
                                        name="password"
                                        id="passwordUser"
-                                       class="form-control">
+                                       class="form-control"
+                                       required
+                                >
                             </div>
                             <div class="form-group">
                                 <label for="adminUser">Дать права администратора?</label>
@@ -46,18 +48,6 @@
                                         <option value="0" @if (!$user->is_admin) {{'selected'}} @endif>Нет</option>
                                         <option value="1" @if ($user->is_admin) {{'selected'}} @endif>Да</option>
                                     </select>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="custom-file">
-                                    <label class="custom-file-label" for="customFile">Нажмите, чтобы загрузить фото...</label>
-                                    <input type="file"
-                                           class="custom-file-input"
-                                           id="customFile"
-                                           name="foto"
-                                           >
-                                </div>
-
                             </div>
 
 

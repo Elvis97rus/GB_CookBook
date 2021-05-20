@@ -10,7 +10,7 @@
             <div class="hot-tags-top m-auto text-center pt-10 pb-10">
                 <div class="row row-1">
                     <div class="tag-item">
-                        <img src="{{asset('images/top-tags/1_1.png')}}" class="" alt="">
+                        <img src="{{$bestRecipes->image ?? asset('/images/default.jpg')}}" class="" alt="">
                         <div class="info info-big">
                             <div class="tag">Блюдо дня</div>
                             <a href="{{ route('show', $bestRecipes->id) }}"><span class="name">{{$bestRecipes->name}}</span></a>
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="tag-item">
-                        <img src="{{asset('images/top-tags/1_2.png')}}" class="" alt="">
+                        <img src="{{$maxLevelRecipes->image ?? asset('/images/default.jpg')}}" class="" alt="">
                         <div class="info info-big">
                             <div class="tag">лучший сложный рецепт недели</div>
                             <a href="{{ route('show', $maxLevelRecipes->id) }}"><span class="name">{{$maxLevelRecipes->name}}</span></a>
@@ -63,7 +63,7 @@
                         @forelse($recipes as $recipe)
                             @if ($recipe->is_true)
                                 <div class="recipe-item flex">
-                                    <a href="{{ route('show', $recipe->id) }}"><div class="photo" style="background: url({{$recipe->image ?? asset('/images/default.jpg')}}) no-repeat center"></div></a>
+                                    <a href="{{ route('show', $recipe->id) }}"><div class="photo" style="background: url({{$recipe->image ?? asset('/images/default.jpg')}}) no-repeat center; background-size: cover;"></div></a>
                                     <div class="description flex flex-col justify-between">
                                         <div class="top flex flex-col justify-between">
                                             <a href="{{ route('show', $recipe->id) }}"><div class="title">{{$recipe->name}}</div></a>
@@ -72,7 +72,6 @@
                                                     <li class="block list-none"><span class="material-icons">timer</span> {{$recipe->time}}</li>
                                                     <li class="block list-none"><span class="material-icons">whatshot</span>
                                                         Сложность {{$recipe->level}}</li>
-                                                    <li class="block list-none"><span class="material-icons">directions_run</span> 125 ккал</li>
                                                 </ul>
                                             </div>
                                             <div class="ingredients mt-4 mb-4">{{$recipe->description}}</div>
@@ -124,7 +123,7 @@
 
                     @foreach($kitchens as $kitchen)
 
-                        <div class="hot-pick-item"><a href="{{ route('showKitchen', $kitchen->id) }}"><span>{{$kitchen->name}}</span> </a></div>
+                        <div class="hot-pick-item" style="background: url('/images/kitchens/{{$kitchen->img}}.jpg') no-repeat center; background-size: cover;"><a href="{{ route('showKitchen', $kitchen->id) }}"><span>{{$kitchen->name}}</span> </a></div>
 
                     @endforeach
 

@@ -1,21 +1,6 @@
 @extends('layouts.app')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 @section('content')
-    <div class="home_container flex flex-col">
-        @include('parts.sidebar')
-        <div class="main w-5/6 w-full pl-10 pt-10 pr-9">
-
-            <div class="header mb-8">
-                <div class="top-line flex justify-between text-gray-400">
-                    <div class="left w-1/12 flex justify-around">
-                        <span class="menu-btn material-icons">menu</span>
-                    </div>
-                </div>
-
-                @include('parts.separator')
-
-            </div>
-
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8">

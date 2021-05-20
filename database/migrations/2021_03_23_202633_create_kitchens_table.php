@@ -23,6 +23,10 @@ class CreateKitchensTable extends Migration
                 ->string('slug')
                 ->unique()
                 ->comment('Уникальная ссылка на раздел кухни');
+            $table
+                ->string('img')
+                ->unique()
+                ->comment('Фото кухни');
             $table->timestamps();
         });
     }
