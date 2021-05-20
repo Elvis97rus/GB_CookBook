@@ -4,12 +4,9 @@
     </div>
 
     <ul class="menu text-center">
-        <li class="uppercase"><a href="#">рецепты</a></li>
-        <li class="uppercase"><a href="#">продукты</a></li>
-        <li class="uppercase"><a href="#">как приготовить</a></li>
-        <li class="uppercase"><a href="#">кулинарная книга</a></li>
-        <li class="uppercase"><a href="#">здоровье</a></li>
-        <li class="uppercase"><a href="#">авторы</a></li>
+        @foreach($kitchens  as $kitchen)
+            <li class="uppercase"><a href="{{ route('showKitchen', $kitchen->id) }}">{{$kitchen->name}}</a></li>
+        @endforeach
     </ul>
 
 </div>

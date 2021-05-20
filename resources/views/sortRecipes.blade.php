@@ -18,7 +18,7 @@
                             @forelse($data as $recipe)
                                 @if ($recipe->is_true)
                                     <div class="recipe-item flex">
-                                        <a href="{{ route('show', $recipe->id) }}"><div class="photo" style="background: url({{$recipe->image ?? asset('/images/default.jpg')}}) no-repeat center"></div></a>
+                                        <a href="{{ route('show', $recipe->id) }}"><div class="photo" style="background: url({{$recipe->image ?? asset('/images/default.jpg')}}) no-repeat center; background-size: cover;"></div></a>
                                         <div class="description flex flex-col justify-between">
                                             <div class="top flex flex-col justify-between">
                                                 <a href="{{ route('show', $recipe->id) }}"><div class="title">{{$recipe->name}}</div></a>

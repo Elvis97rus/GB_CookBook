@@ -9,6 +9,7 @@ class Kitchens extends \Illuminate\Database\Eloquent\Model
     protected $fillable = [
         'name',
         'slug',
+        'img',
     ];
 
     public function getKitchens() {

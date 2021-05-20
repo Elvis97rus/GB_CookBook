@@ -4,6 +4,10 @@
 
 @section('content')
 
-    <h1>Админка</h1>
+    <div class="container-lg">
+
+        <h1>Админка</h1>
+
+    </div>
 
 @endsection

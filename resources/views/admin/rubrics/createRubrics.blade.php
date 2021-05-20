@@ -3,7 +3,7 @@
 @include('admin.menu')
 
 @section('content')
-    <div class="container">
+    <div class="container-lg">
         <div class="col-12">
             <img src="{{$rubric->image ?? asset('/images/defaultRubric.png')}}" class="card-img-top" style="height: 200px; width: 200px;" alt="...">
             <div class="card-body">

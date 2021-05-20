@@ -34,7 +34,7 @@ class UsersSeeder extends Seeder
             'password' => Hash::make('user'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
-            'is_admin' => 2,
+            'is_admin' => false,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

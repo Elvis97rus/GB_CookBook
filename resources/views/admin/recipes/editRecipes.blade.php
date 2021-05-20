@@ -2,16 +2,13 @@
 @include('admin.menu')
 @section('content')
 
-    <div class="container">
+    <div class="container-lg">
         <h1  class="display-1">Редакция рецептов</h1>
         <a href="{{ route('admin.createRecipes') }}" class="btn btn-success">Создать новый рецепт</a>
 
-        <div class="row">
-
-
-
+        <div class="row row-cols-auto">
             @forelse($recipes as $recipe)
-            <div class="col-sm">
+            <div class="col" style="margin-bottom: 1em">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="{{$recipe->image ?? asset('/images/default.jpg')}}" alt="Card image cap">
                     <div class="card-body">

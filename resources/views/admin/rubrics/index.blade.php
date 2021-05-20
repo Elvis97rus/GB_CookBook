@@ -3,7 +3,7 @@
 @include('admin.menu')
 
 @section('content')
-    <div class="container">
+    <div class="container-lg">
     <h1  class="display-1">Редакция рубрик</h1>
     <a href="{{ route('admin.createRubrics') }}" class="btn btn-success">Создать новую рубрику</a>
 
